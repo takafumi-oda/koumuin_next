@@ -10,5 +10,4 @@ class User < ApplicationRecord
   validates :age_id, presence: true
   validates :organization_id, presence: true
   validates :job_id, presence: true
-  validates :admin, presence: true
 end
