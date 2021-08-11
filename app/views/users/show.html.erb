@@ -1,0 +1,39 @@
+<% if flash.notice %>
+  <p><%= flash.notice %></p>
+<% end %>
+
+<h3>ユーザー情報</h3>
+<table>
+  <tr>
+      <th>ユーザー名</th>
+      <td><%= @user.name %></td>
+  </tr>
+  <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+  </tr>
+    <tr>
+      <th>年代</th>
+      <td><%= @user.age.category %></td>
+  </tr>
+  <tr>
+      <th>組織</th>
+      <td><%= @user.organization.category %></td>
+  </tr>
+  <tr>
+      <th>職種</th>
+      <td><%= @user.job.category %></td>
+  </tr>
+  <tr>
+      <th>自己紹介</th>
+      <td><%= @user.introduction %></td>
+  </tr>
+</table>
+
+<%= link_to "ユーザー情報の編集", :edit_user %>
+<%= link_to "ユーザーの削除", :user, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+<%= link_to "ログアウト", logout_path, method: :delete %>
+
+<%if current_user.admin?%>
+  <%= link_to "管理者画面へ", :admin_users %>
+<% end %>

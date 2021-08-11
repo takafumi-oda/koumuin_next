@@ -21,3 +21,9 @@ Style/Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+StringLiterals:
+  Enabled: false

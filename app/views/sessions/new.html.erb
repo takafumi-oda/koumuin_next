@@ -1,0 +1,19 @@
+<% if flash.alert %>
+  <p><%= flash.alert %></p>
+<% end %>
+
+<% if flash.notice %>
+  <p><%= flash.notice %></p>
+<% end %>
+
+<h3>ログイン</h3>
+<%= form_with scope: :session, url: login_path, local: true do |form| %>
+  <div><%= form.email_field :email, placeholder: "メールアドレス" %></div>
+  <div><%= form.password_field :password, placeholder: "パスワード" %></div>
+  <div>
+    <ul>
+      <li><%= form.submit "ログイン" %></li>
+      <li><%= link_to "まだユーザー登録がお済みでない方はこちら", :new_user %></li>
+    </ul>
+  </div>
+<% end %>

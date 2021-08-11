@@ -1,0 +1,12 @@
+<% if flash.alert %>
+  <p class="alert"><%= flash.alert %></p>
+<% end %>
+
+<%= render "shared/error", obj: @user %>
+
+<h3>パスワード変更</h3>
+<%= form_with model: @user, local: true, url: {controller: 'password', action: 'update' } do |form| %>
+  <%= form.password_field :password, placeholder: "新しいパスワード" %>
+  <%= form.password_field :password_confirmation, placeholder: "新しいパスワード（確認）" %>
+  <%= form.submit "パスワードを変更" %>
+<% end %>
