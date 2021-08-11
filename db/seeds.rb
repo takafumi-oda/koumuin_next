@@ -1,6 +1,6 @@
-Age.create([{age: '10代'},{age: '20代'},{age: '30代'},{age: '40代'},{age: '50代以上'}])
-Organization.create([{organization: '国家公務員'},{organization: '地方公務員'}])
-Job.create([{job: '事務系'},{job: '技術系'}])
+Age.create([{category: '10代'},{category: '20代'},{category: '30代'},{category: '40代'},{category: '50代以上'}])
+Organization.create([{category: '国家公務員'},{category: '地方公務員'}])
+Job.create([{category: '事務系'},{category: '技術系'}])
 
 User.create(
   name: '管理者ユーザー',
