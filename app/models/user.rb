@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
   validates :age_id, presence: true
   validates :organization_id, presence: true
   validates :job_id, presence: true
+  validates :password, presence: true, on: :password_update
 end

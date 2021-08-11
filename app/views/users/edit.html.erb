@@ -1,0 +1,24 @@
+<% if flash.alert %>
+  <p><%= flash.alert %></p>
+<% end %>
+
+<%= render "shared/error", obj: @user %>
+
+<h3>ユーザー情報の編集</h3>
+<%= form_with model: @user, local: true do |form| %>
+  <div><%= form.label :name, "ユーザー名" %></div>
+  <div><%= form.text_field :name, placeholder: "ユーザー名" %></div>
+  <div><%= form.label :email, "メールアドレス" %></div>
+  <div><%= form.email_field :email, placeholder:"メールアドレス" %></div>
+　<div><%= form.label :age_id, "年代" %></div>
+  <div><%= form.collection_select :age_id, @ages, :id, :category, prompt: "年代" %></div>
+  <div><%= form.label :organization_id, "組織" %></div>
+  <div><%= form.collection_select :organization_id, @organizations, :id, :category, prompt: "組織" %></div>
+  <div><%= form.label :job_id, "職種" %></div>
+  <div><%= form.collection_select :job_id, @jobs, :id, :category, prompt: "職種" %></div>
+  <div><%= form.label :introduction, "自己紹介" %></div>
+  <div><%= form.text_area :introduction, placeholder: "自己紹介" %></div>
+  <div><%= form.submit "編集する" %></div>
+<% end %>
+
+<%= link_to "パスワードの変更", :edit_password %>
