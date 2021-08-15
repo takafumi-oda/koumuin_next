@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :age
   belongs_to :organization
   belongs_to :job
+  has_many :posts, dependent: :nullify
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
