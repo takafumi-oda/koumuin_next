@@ -1,6 +1,9 @@
 require:
   - rubocop-rails
 
+inherit_gem:
+  rubocop-discourse: default.yml
+
 AllCops:
   TargetRubyVersion: 2.7.3
   NewCops: enable

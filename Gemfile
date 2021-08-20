@@ -39,6 +39,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'rspec_junit_formatter'
+  gem "rubocop-discourse"
 end
 
 group :development do
