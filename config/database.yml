@@ -51,5 +51,4 @@ test:
 production:
   <<: *default
   database: koumuin_next_production
-  username: koumuin_next
-  password: <%= ENV['KOUMUIN_NEXT_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
