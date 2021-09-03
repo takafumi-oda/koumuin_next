@@ -1,7 +1,7 @@
 lock '3.16.0'
 set :application, 'koumuin_next'
 set :repo_url, 'git@github.com:takafumi-oda/koumuin_next.git'
-set :branch, '#5/capistrano'
+set :branch, 'master'
 set :deploy_to, '/var/www/koumuin_next'
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
