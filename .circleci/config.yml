@@ -46,7 +46,6 @@ jobs:
       - ruby/install-deps
       - add_ssh_keys:
           fingerprints: "60:29:87:dd:d3:32:8b:a9:dd:61:ba:b2:ab:93:ef:12"
-      - run: ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME}
       - deploy:
           name: Capistrano deploy
           command: bundle exec cap production deploy
