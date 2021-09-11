@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_15_192025) do
+ActiveRecord::Schema.define(version: 2021_09_11_202132) do
 
   create_table "ages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "category", null: false
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2021_08_15_192025) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "statuses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category"], name: "index_statuses_on_category", unique: true
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -52,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_08_15_192025) do
     t.boolean "admin", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "status_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
