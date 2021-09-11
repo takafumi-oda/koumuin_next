@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     @ages = Age.all
     @organizations = Organization.all
     @jobs = Job.all
+    @statuses = Status.all
   end
 
   def user_params
@@ -57,6 +58,7 @@ class UsersController < ApplicationController
       :age_id,
       :organization_id,
       :job_id,
+      :status_id,
       :introduction
     )
   end

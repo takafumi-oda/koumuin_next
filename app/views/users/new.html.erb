@@ -20,6 +20,8 @@
   <div><%= form.collection_select :organization_id, @organizations, :id, :category, prompt: "組織" %></div>
   <div><%= form.label :job_id, "職種" %></div>
   <div><%= form.collection_select :job_id, @jobs, :id, :category, prompt: "職種" %></div>
+  <div><%= form.label :status_id, "現在の状況" %></div>
+  <div><%= form.collection_select :status_id, @statuses, :id, :category, prompt: "現在の状況" %></div>
   <div><%= form.label :introduction, "自己紹介" %></div>
   <div><%= form.text_area :introduction, placeholder: "自己紹介" %></div>
   <div><%= form.submit "新規登録" %></div>

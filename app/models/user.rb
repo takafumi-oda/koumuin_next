@@ -3,6 +3,7 @@ class User < ApplicationRecord
   belongs_to :age
   belongs_to :organization
   belongs_to :job
+  belongs_to :status
   has_many :posts, dependent: :nullify
 
   validates :name, presence: true
@@ -10,5 +11,6 @@ class User < ApplicationRecord
   validates :age_id, presence: true
   validates :organization_id, presence: true
   validates :job_id, presence: true
+  validates :status_id, presence: true
   validates :password, presence: true, on: :password_update
 end
