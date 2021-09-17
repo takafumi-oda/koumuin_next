@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  resources :posts, only: %i[new create show destroy]
+  resources :posts, only: %i[new create show destroy] do
+    resources :replies, only: %i[create destroy]
+  end
 end

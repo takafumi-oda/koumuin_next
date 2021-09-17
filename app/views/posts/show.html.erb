@@ -3,5 +3,38 @@
 <% end %>
 
 <h3><%= @post.title %></h3>
-<%= @post.content %>
-<%= link_to "投稿の削除", :post, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+<h4><%= @post.user.name %></h4>
+<%= link_to "投稿の削除", :post, method: :delete, data: {confirm: "本当に削除しますか？"} if post_delete_permission? %>
+<h4><%= @post.content %></h4>
+
+<% @replies.each do |reply| %>
+  <% if reply.parent_id.nil? %>
+    <p>----------------------------------------------------</p>
+    <p><%= reply.user.name %></p>
+    <p><%= reply.content %></p>
+    <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission? %>
+    <% @replies.each do |children_reply| %>
+      <% if reply.id == children_reply.parent_id %>
+        <p>・・・・・・・・・・・・・・・・・・・</p>
+        <p><%= children_reply.user.name %></p>
+        <p><%= children_reply.content %></p>
+        <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission? %>
+      <% end %>
+    <% end %>
+    <p>・・・・・・・・・・・・・・・・・・・</p>
+    <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+      <div><%= form.label :content, "この回答に返信する" %></div>
+      <div><%= form.text_area :content, placeholder: "返信を入力してください" %></div>
+      <%= form.hidden_field :post_id, value: @post.id %>
+      <%= form.hidden_field :parent_id, value: reply.id %>
+      <div><%= form.submit "返信" %></div>
+    <% end %>
+  <% end %>
+<% end %>
+<p>----------------------------------------------------</p>
+<%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+  <div><%= form.label :content, "回答する" %></div>
+  <div><%= form.text_area :content, placeholder: "回答を入力してください" %></div>
+  <%= form.hidden_field :post_id, value: @post.id %>
+  <div><%= form.submit "回答" %></div>
+<% end %>
