@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :login_required, only: %i[new create show destroy]
+  before_action :login_required, only: %i[new create destroy]
 
   def index
     @posts = Post.all
@@ -22,6 +22,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @replies = @post.replies
+    @reply = Reply.new
   end
 
   def destroy
