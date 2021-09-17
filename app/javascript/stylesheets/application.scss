@@ -1,1 +1,70 @@
 @import "bootstrap";
+
+body *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header * a{
+  color: white;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.wrapper{
+  background-color: dimgray;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header-wrapper{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.header-title{
+  font-size: 24px;
+  margin-right: 100px;
+}
+
+.header-search{
+  width: 300px;
+  height: 30px;
+  background-color: white;
+}
+
+.header-link{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 100px;
+}
+
+.header-ask{
+  margin-right: 30px;
+  height: 30px;
+  width: 120px;
+  background-color: limegreen;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.haeder-user{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.haeder-user > li{
+  margin: 15px;
+}
