@@ -7,7 +7,7 @@ module PostsHelper
     @replies.empty? && (current_user.admin? || current_user == @post.user if current_user)
   end
 
-  def reply_delete_permission?
-    current_user.admin? || current_user == @reply.user if current_user
+  def reply_delete_permission?(reply)
+    current_user.admin? || current_user == reply.user if current_user
   end
 end
