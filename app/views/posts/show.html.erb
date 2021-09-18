@@ -12,13 +12,13 @@
     <p>----------------------------------------------------</p>
     <p><%= reply.user.name %></p>
     <p><%= reply.content %></p>
-    <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission? %>
+    <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(reply) %>
     <% @replies.each do |children_reply| %>
       <% if reply.id == children_reply.parent_id %>
         <p>・・・・・・・・・・・・・・・・・・・</p>
         <p><%= children_reply.user.name %></p>
         <p><%= children_reply.content %></p>
-        <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission? %>
+        <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(children_reply) %>
       <% end %>
     <% end %>
     <p>・・・・・・・・・・・・・・・・・・・</p>
