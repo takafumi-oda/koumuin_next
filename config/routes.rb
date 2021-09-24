@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   root 'posts#index'
   namespace :admin do
     resources :users, only: %i[index destroy]
