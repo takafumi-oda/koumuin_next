@@ -11,6 +11,7 @@
   <% if reply.parent_id.nil? %>
     <p>----------------------------------------------------</p>
     <p><%= reply.user.name %></p>
+    <%= react_component("Like", props: { replyId: reply.id, likeId: reply.like_by(current_user)&.id }, prerender: false) %>
     <p><%= reply.content %></p>
     <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(reply) %>
     <% @replies.each do |children_reply| %>

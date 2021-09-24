@@ -6,6 +6,7 @@ class User < ApplicationRecord
   belongs_to :status
   has_many :posts, dependent: :nullify
   has_many :replies, dependent: :nullify
+  has_many :likes, dependent: :nullify
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
