@@ -1,5 +1,6 @@
 <% if flash.notice %>
   <p><%= flash.notice %></p>
+  <p><%= flash.alert %></p>
 <% end %>
 
 <h3><%= @post.title %></h3>
@@ -12,12 +13,14 @@
     <p>----------------------------------------------------</p>
     <p><%= reply.user.name %></p>
     <p><%= reply.content %></p>
+    <%= react_component("Like", props: { replyId: reply.id, likeId: reply.like_by(current_user)&.id, likeCount: reply.likes.size, user: current_user }, prerender: false) %>
     <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(reply) %>
     <% @replies.each do |children_reply| %>
       <% if reply.id == children_reply.parent_id %>
         <p>・・・・・・・・・・・・・・・・・・・</p>
         <p><%= children_reply.user.name %></p>
         <p><%= children_reply.content %></p>
+        <%= react_component("Like", props: { replyId: children_reply.id, likeId: children_reply.like_by(current_user)&.id, likeCount: children_reply.likes.size, user: current_user }, prerender: false) %>
         <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(children_reply) %>
       <% end %>
     <% end %>
