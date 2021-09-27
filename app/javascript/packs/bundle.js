@@ -1,10 +1,10 @@
 import ReactOnRails from 'react-on-rails';
 import Like from '../bundles/Like';
 import Favorite from '../bundles/Favorite';
-import App from '../bundles/App';
+import UserModal from '../bundles/UserModal';
 
 ReactOnRails.register({
   Like,
   Favorite,
-  App,
+  UserModal,
 });

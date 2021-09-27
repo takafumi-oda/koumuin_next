@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 
-const App = (props) => {
+const UserModal = (props) => {
   const { userName, userAge, userOrganization, userJob, userStatus, userIntroduction } = props;
   const [showModal, setShowModal] = useState(false);
   const ShowModal = () => {
@@ -16,4 +16,4 @@ const App = (props) => {
   );
 };
 
-export default App;
+export default UserModal;
