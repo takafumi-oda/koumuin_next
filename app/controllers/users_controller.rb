@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id), notice: "ユーザー「#{@user.name}」のアカウントを登録しました"
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: "ユーザー「#{@user.name}」のアカウントを登録しました"
     else
       flash[:alert] = "新しいアカウントの登録に失敗しました"
       render :new
