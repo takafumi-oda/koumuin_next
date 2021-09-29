@@ -7,7 +7,7 @@
       <ul class = "haeder-user">
         <li><%= link_to " ログイン", login_path, class: "fas fa-sign-in-alt" unless current_user %></li>
         <li><%= link_to " 新規会員登録", new_user_path, class: "fas fa-user-plus" unless current_user %></li>
-        <li><%= link_to " #{current_user.name}", user_path(current_user.id) if current_user %></li>
+        <li><%= react_component("UserMenu", props: { userName: current_user.name, userId: current_user.id }, prerender: false) if current_user %></li>
       </ul>
     </div>
   </div>
