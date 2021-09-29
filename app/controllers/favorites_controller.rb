@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+  before_action :login_required, only: %i[index]
+
+  def index
+    @favorites = Favorite.where(user_id: current_user.id)
+  end
+
   def create
     favorite = current_user.favorites.create!(favorite_params)
     render json: favorite

@@ -5,21 +5,21 @@
 
 <h3><%= @post.title %></h3>
 <%= react_component("Favorite", props: { postId: @post.id, favoriteId: @post.favorite_by(current_user)&.id, user: current_user }, prerender: false) %>
-<%= react_component("App", props: { userName: @post.user.name, userAge: @post.user.age.category, userOrganization: @post.user.organization.category, userJob: @post.user.job.category, userStatus: @post.user.status.category, userIntroduction: @post.user.introduction }, prerender: false) %>
+<%= react_component("UserModal", props: { userName: @post.user.name, userAge: @post.user.age.category, userOrganization: @post.user.organization.category, userJob: @post.user.job.category, userStatus: @post.user.status.category, userIntroduction: @post.user.introduction }, prerender: false) %>
 <%= link_to "投稿の削除", :post, method: :delete, data: {confirm: "本当に削除しますか？"} if post_delete_permission? %>
 <h4><%= @post.content %></h4>
 
 <% @replies.each do |reply| %>
   <% if reply.parent_id.nil? %>
     <p>----------------------------------------------------</p>
-    <%= react_component("App", props: { userName: reply.user.name, userAge: reply.user.age.category, userOrganization: reply.user.organization.category, userJob: reply.user.job.category, userStatus: reply.user.status.category, userIntroduction: reply.user.introduction }, prerender: false) %>
+    <%= react_component("UserModal", props: { userName: reply.user.name, userAge: reply.user.age.category, userOrganization: reply.user.organization.category, userJob: reply.user.job.category, userStatus: reply.user.status.category, userIntroduction: reply.user.introduction }, prerender: false) %>
     <p><%= reply.content %></p>
     <%= react_component("Like", props: { replyId: reply.id, likeId: reply.like_by(current_user)&.id, likeCount: reply.likes.size, user: current_user }, prerender: false) %>
     <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(reply) %>
     <% @replies.each do |children_reply| %>
       <% if reply.id == children_reply.parent_id %>
         <p>・・・・・・・・・・・・・・・・・・・</p>
-        <%= react_component("App", props: { userName: children_reply.user.name, userAge: children_reply.user.age.category, userOrganization: children_reply.user.organization.category, userJob: children_reply.user.job.category, userStatus: children_reply.user.status.category, userIntroduction: children_reply.user.introduction }, prerender: false) %>
+        <%= react_component("UserModal", props: { userName: children_reply.user.name, userAge: children_reply.user.age.category, userOrganization: children_reply.user.organization.category, userJob: children_reply.user.job.category, userStatus: children_reply.user.status.category, userIntroduction: children_reply.user.introduction }, prerender: false) %>
         <p><%= children_reply.content %></p>
         <%= react_component("Like", props: { replyId: children_reply.id, likeId: children_reply.like_by(current_user)&.id, likeCount: children_reply.likes.size, user: current_user }, prerender: false) %>
         <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(children_reply) %>
