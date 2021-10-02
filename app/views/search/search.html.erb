@@ -1,0 +1,12 @@
+<h3>検索結果</h3>
+  <table class = "post-list table">
+    <% @search_posts.each do |search_posts| %>
+      <tr>
+        <td>
+          <%= link_to "#{search_posts.title}", post_path(search_posts.id) %>
+          <%= "#{search_posts.user.name}" %>
+          <%= datetime_format(search_posts.created_at) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

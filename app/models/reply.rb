@@ -9,4 +9,12 @@ class Reply < ApplicationRecord
   def like_by(user)
     likes.find { |like| like.user_id == user.id } if user
   end
+
+  def self.search(search)
+    if search
+      Reply.where("content LIKE ?", "%#{search}%")
+    else
+      Reply.all
+    end
+  end
 end

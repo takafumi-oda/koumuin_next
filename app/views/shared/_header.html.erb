@@ -2,7 +2,7 @@
   <div class = "header-wrapper">
     <div class = "header-title"><%= link_to "公務員NEXT", root_path %></div>
     <div class = "search-box">
-      <%= form_with url: search_posts_path, method: :get, class: "header-search", local: true do |form| %>
+      <%= form_with url: search_path, method: :get, class: "header-search", local: true do |form| %>
         <%= form.search_field :keyword, placeholder: "キーワードで検索" %>
         <%= form.submit "\uf002", class: "search-icon" %>
       <% end %>
