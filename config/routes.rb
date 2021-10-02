@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
+  get 'search/search'
   root 'posts#index'
   namespace :admin do
     resources :users, only: %i[index destroy]
@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
   resources :likes, only: %i[create destroy]
   resources :favorites, only: %i[index create destroy]
+  get 'search', to: 'search#search'
 end

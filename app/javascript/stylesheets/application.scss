@@ -26,13 +26,26 @@ ul {
 
 .header-title{
   font-size: 24px;
-  margin-right: 100px;
 }
 
-.header-search{
-  width: 300px;
-  height: 30px;
+.search-box{
   background-color: white;
+  padding-right: 0 10px;
+}
+
+#keyword{
+  width: 300px;
+  background-color: white;
+  border: none;
+  padding: 0 10px;
+}
+
+.search-icon{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  background-color: white;
+  border: none;
+  padding-right: 10px;
 }
 
 .header-link{
