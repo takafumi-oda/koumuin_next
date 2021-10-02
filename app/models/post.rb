@@ -9,4 +9,12 @@ class Post < ApplicationRecord
   def favorite_by(user)
     favorites.find { |favorite| favorite.user_id == user.id } if user
   end
+
+  def self.search(search)
+    if search
+      Post.where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      Post.all
+    end
+  end
 end

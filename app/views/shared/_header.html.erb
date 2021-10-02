@@ -1,9 +1,14 @@
 <header>
   <div class = "header-wrapper">
-    <div class = "header-title" ><%= link_to "公務員NEXT", root_path %></div>
-    <div class = "header-search"></div>
-    <div class = "header-link" >
-      <div class = "header-ask" ><%= link_to " 相談する", new_post_path, class: "far fa-comment-dots" %></div>
+    <div class = "header-title"><%= link_to "公務員NEXT", root_path %></div>
+    <div class = "search-box">
+      <%= form_with url: search_posts_path, method: :get, class: "header-search", local: true do |form| %>
+        <%= form.search_field :keyword, placeholder: "キーワードで検索" %>
+        <%= form.submit "\uf002", class: "search-icon" %>
+      <% end %>
+    </div>
+    <div class = "header-link">
+      <div class = "header-ask"><%= link_to " 相談する", new_post_path, class: "far fa-comment-dots" %></div>
       <ul class = "haeder-user">
         <li><%= link_to " ログイン", login_path, class: "fas fa-sign-in-alt" unless current_user %></li>
         <li><%= link_to " 新規会員登録", new_user_path, class: "fas fa-user-plus" unless current_user %></li>
