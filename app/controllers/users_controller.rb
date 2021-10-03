@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_relation_tables, only: %i[new create edit update]
   before_action :login_required, only: %i[edit update show destroy]
 
   def new
@@ -43,23 +42,16 @@ class UsersController < ApplicationController
 
   private
 
-  def set_relation_tables
-    @ages = Age.all
-    @organizations = Organization.all
-    @jobs = Job.all
-    @statuses = Status.all
-  end
-
   def user_params
     params.require(:user).permit(
       :name,
       :email,
       :password,
       :password_confirmation,
-      :age_id,
-      :organization_id,
-      :job_id,
-      :status_id,
+      :age,
+      :organization,
+      :job,
+      :status,
       :introduction
     )
   end
