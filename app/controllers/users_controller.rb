@@ -34,10 +34,15 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def destroy
-    @user = User.find(current_user.id)
-    @user.destroy
-    redirect_to new_user_path, notice: "ユーザー「#{@user.name}」を削除しました"
+  def check
+    @user = User.find(params[:id])
+  end
+
+  def withdrawl
+    @user = User.find(params[:id])
+    @user.update(active: false)
+    reset_session
+    redirect_to root_path
   end
 
   private

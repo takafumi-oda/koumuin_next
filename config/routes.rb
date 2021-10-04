@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: %i[index destroy]
   end
-  resources :users, only: %i[new create edit update show destroy]
+  resources :users, only: %i[new create edit update show] do
+    member do
+      get 'check'
+      patch 'withdrawl'
+    end
+  end
   resources :password, only: %i[edit update]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
