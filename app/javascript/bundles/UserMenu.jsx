@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 
 const UserMenu = (props) => {
-  const { userName, userId } = props;
+  const { user } = props;
   const [showMenu, setShowMenu] = useState(false);
   const ShowMenu = () => {
     if (showMenu) {
@@ -14,8 +14,8 @@ const UserMenu = (props) => {
 
   return (
     <>
-      <p className="user-menu" onClick={ShowMenu}>{userName}</p>
-      <Menu showFlag={showMenu} setShowMenu={setShowMenu} userId={userId} />
+      <p className="user-menu" onClick={ShowMenu}>{user.name}</p>
+      <Menu showFlag={showMenu} setShowMenu={setShowMenu} user={user} />
     </>
   );
 };
