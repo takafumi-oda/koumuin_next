@@ -11,21 +11,31 @@
     <th>年代</th>
     <th>組織</th>
     <th>職種</th>
+    <th>現在の状況</th>
     <th>自己紹介</th>
-    <th>管理者権限</th>
-    <th>ユーザー削除</th>
+    <th>アクティブユーザー</th>
+    <th>備考（管理者用）</th>
+    <th>強制退会</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
-      <td><%= user.name %></td>
+      <td><%= link_to "#{user.name}", edit_admin_user_path(user.id) %></td>
       <td><%= user.email %></td>
-      <td><%= user.age.category %></td>
-      <td><%= user.organization.category %></td>
-      <td><%= user.job.category %></td>
+      <td><%= user.age %></td>
+      <td><%= user.organization %></td>
+      <td><%= user.job %></td>
+      <td><%= user.status %></td>
       <td><%= user.introduction %></td>
-      <td><%= user.admin %></td>
-      <td><%= link_to "削除", admin_user_path(user.id), method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+      <td>
+        <% if user.active %>
+          <p>○</p>
+        <% else %>
+          <p>×</p>
+        <% end %>
+      </td>
+      <td><%= user.note %></td>
+      <td><%= link_to "強制退会", withdrawl_user_path(user.id), method: :patch, data: {confirm: "本当に退会させますか？"} %></td>
     </tr>
   <% end %>
 </table>

@@ -10,12 +10,12 @@ const Modal = (props) => {
       {props.showFlag ? (
         <div className = "overlay">
           <div className = "modal-window">
-            <p>{props.userName}</p>
-            <p>{props.userAge}</p>
-            <p>{props.userOrganization}</p>
-            <p>{props.userJob}</p>
-            <p>{props.userStatus}</p>
-            <p>{props.userIntroduction}</p>
+            <p>{props.user.name}</p>
+            <p>{props.user.age}</p>
+            <p>{props.user.organization}</p>
+            <p>{props.user.job}</p>
+            <p>{props.user.status}</p>
+            <p>{props.user.introduction}</p>
             <button onClick={closeModal}>Close</button>
           </div>
         </div>

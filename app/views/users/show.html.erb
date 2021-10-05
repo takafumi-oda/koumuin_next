@@ -14,19 +14,19 @@
   </tr>
     <tr>
       <th>年代</th>
-      <td><%= @user.age.category %></td>
+      <td><%= @user.age %></td>
   </tr>
   <tr>
       <th>組織</th>
-      <td><%= @user.organization.category %></td>
+      <td><%= @user.organization %></td>
   </tr>
   <tr>
       <th>職種</th>
-      <td><%= @user.job.category %></td>
+      <td><%= @user.job %></td>
   </tr>
     <tr>
       <th>現在の状況</th>
-      <td><%= @user.status.category %></td>
+      <td><%= @user.status %></td>
   </tr>
   <tr>
       <th>自己紹介</th>
@@ -35,7 +35,7 @@
 </table>
 
 <%= link_to "ユーザー情報の編集", :edit_user %>
-<%= link_to "ユーザーの削除", :user, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+<%= link_to "退会する", check_user_path(@user.id) %>
 <%= link_to "ログアウト", logout_path, method: :delete %>
 
 <%if current_user.admin?%>

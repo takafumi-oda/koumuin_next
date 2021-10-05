@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_relation_tables, only: %i[new create edit update]
   before_action :login_required, only: %i[edit update show destroy]
 
   def new
@@ -35,20 +34,18 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def destroy
-    @user = User.find(current_user.id)
-    @user.destroy
-    redirect_to new_user_path, notice: "ユーザー「#{@user.name}」を削除しました"
+  def check
+    @user = User.find(params[:id])
+  end
+
+  def withdrawl
+    @user = User.find(params[:id])
+    @user.update(active: false)
+    reset_session
+    redirect_to root_path
   end
 
   private
-
-  def set_relation_tables
-    @ages = Age.all
-    @organizations = Organization.all
-    @jobs = Job.all
-    @statuses = Status.all
-  end
 
   def user_params
     params.require(:user).permit(
@@ -56,10 +53,10 @@ class UsersController < ApplicationController
       :email,
       :password,
       :password_confirmation,
-      :age_id,
-      :organization_id,
-      :job_id,
-      :status_id,
+      :age,
+      :organization,
+      :job,
+      :status,
       :introduction
     )
   end

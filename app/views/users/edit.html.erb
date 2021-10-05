@@ -10,14 +10,30 @@
   <div><%= form.text_field :name, placeholder: "ユーザー名" %></div>
   <div><%= form.label :email, "メールアドレス" %></div>
   <div><%= form.email_field :email, placeholder:"メールアドレス" %></div>
-　<div><%= form.label :age_id, "年代" %></div>
-  <div><%= form.collection_select :age_id, @ages, :id, :category, prompt: "年代" %></div>
-  <div><%= form.label :organization_id, "組織" %></div>
-  <div><%= form.collection_select :organization_id, @organizations, :id, :category, prompt: "組織" %></div>
-  <div><%= form.label :job_id, "職種" %></div>
-  <div><%= form.collection_select :job_id, @jobs, :id, :category, prompt: "職種" %></div>
-  <div><%= form.label :status_id, "現在の状況" %></div>
-  <div><%= form.collection_select :status_id, @statuses, :id, :category, prompt: "現在の状況" %></div>
+　<div><%= form.label :age, "年代" %></div>
+  <div>
+    <%= form.radio_button :age, "10代" %>10代
+    <%= form.radio_button :age, "20代" %>20代
+    <%= form.radio_button :age, "30代" %>30代
+    <%= form.radio_button :age, "40代" %>40代
+    <%= form.radio_button :age, "50代" %>50代
+    <%= form.radio_button :age, "60代以上" %>60代以上
+  </div>
+  <div><%= form.label :organization, "組織" %></div>
+  <div>
+    <%= form.radio_button :organization, "国家公務員" %>国家公務員
+    <%= form.radio_button :organization, "地方公務員" %>地方公務員
+  </div>
+  <div><%= form.label :job, "職種" %></div>
+  <div>
+    <%= form.radio_button :job, "事務系" %>事務系
+    <%= form.radio_button :job, "技術系" %>技術系
+  </div>
+  <div><%= form.label :status, "現在の状況" %></div>
+  <div>
+    <%= form.radio_button :status, "現職" %>現職
+    <%= form.radio_button :status, "退職済" %>退職済
+  </div>
   <div><%= form.label :introduction, "自己紹介" %></div>
   <div><%= form.text_area :introduction, placeholder: "自己紹介" %></div>
   <div><%= form.submit "編集する" %></div>

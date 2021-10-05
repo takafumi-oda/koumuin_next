@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   get 'search/search'
   root 'posts#index'
   namespace :admin do
-    resources :users, only: %i[index destroy]
+    resources :users, only: %i[index edit update destroy]
   end
-  resources :users, only: %i[new create edit update show destroy]
+  resources :users, only: %i[new create edit update show] do
+    member do
+      get 'check'
+      patch 'withdrawl'
+    end
+  end
   resources :password, only: %i[edit update]
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
