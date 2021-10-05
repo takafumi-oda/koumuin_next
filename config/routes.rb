@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'search/search'
   root 'posts#index'
   namespace :admin do
-    resources :users, only: %i[index destroy]
+    resources :users, only: %i[index edit update destroy]
   end
   resources :users, only: %i[new create edit update show] do
     member do
