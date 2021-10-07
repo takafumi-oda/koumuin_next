@@ -5,15 +5,31 @@
 <% if flash.notice %>
   <p><%= flash.notice %></p>
 <% end %>
-
-<h3>ログイン</h3>
-<%= form_with scope: :session, url: login_path, local: true do |form| %>
-  <div><%= form.email_field :email, placeholder: "メールアドレス" %></div>
-  <div><%= form.password_field :password, placeholder: "パスワード" %></div>
-  <div>
-    <ul>
-      <li><%= form.submit "ログイン" %></li>
-      <li><%= link_to "まだユーザー登録がお済みでない方はこちら", :new_user %></li>
-    </ul>
+<div class = "content-wrapper form-wrapper">
+  <div class = "form-box">
+    <div class = "card">
+      <div class = "card-header">ログイン</div>
+        <div class = "card-body">
+          <%= form_with scope: :session, url: login_path, class: "form-horizontal", local: true do |form| %>
+            <div class = "row form-group form-parts">
+              <%= form.label :email, "メールアドレス", class: "col-sm-3 col-form-label" %>
+              <div class = "col-sm-9">
+                <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+              </div>
+            </div>
+            <div class = "row form-group form-parts">
+              <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label" %>
+              <div class = "col-sm-9">
+                <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+              </div>
+            </div>
+            <div class = "btn-position">
+              <div><%= form.submit "ログイン", class: "btn btn-primary" %></div>
+              <div><%= link_to "まだユーザー登録がお済みでない方はこちらへ", :new_user %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
