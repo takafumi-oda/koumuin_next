@@ -19,7 +19,7 @@ const Menu = (props) => {
               <a href = {'/password/'+props.user.id+'/edit'}>パスワードの変更</a>
             </li>
             <li>
-              <a href = {'/logout'} data-method='delete' confirm='本当に削除しますか？'>ログアウト</a>
+              <a href = {'/logout'} data-method='delete'>ログアウト</a>
             </li>
           </ul>
         </div>
