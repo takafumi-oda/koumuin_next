@@ -1,8 +1,3 @@
-<% if flash.alert %>
-  <p><%= flash.alert %></p>
-<% end %>
-
-<%= render "shared/error", obj: @user %>
 <div class = "content-wrapper form-wrapper">
   <div class = "form-box">
     <div class = "card">
@@ -10,31 +5,31 @@
       <div class = "card-body">
         <%= form_with model: @user, class: "form-horizontal", local: true do |form| %>
           <div class = "row form-group form-parts">
-            <%= form.label :name, "ユーザー名", class: "col-sm-3 col-form-label" %>
+            <%= form.label :name, "ユーザー名", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.text_field :name, class: "form-control", placeholder: "ユーザー名" %>
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :email, "メールアドレス", class: "col-sm-3 col-form-label" %>
+            <%= form.label :email, "メールアドレス", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.email_field :email, class: "form-control", placeholder:"メールアドレス" %>
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label" %>
+            <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label" %>
+            <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワード(確認)" %>
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :age, "年代", class: "col-sm-3 col-form-label" %>
+            <%= form.label :age, "年代", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.radio_button :age, "10代", class: "form-check-input" %>10代
               <%= form.radio_button :age, "20代", class: "form-check-input radio-button" %>20代
@@ -45,21 +40,21 @@
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :organization, "組織", class: "col-sm-3 col-form-label" %>
+            <%= form.label :organization, "組織", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
               <%= form.radio_button :organization, "国家公務員", class: "form-check-input" %>国家公務員
               <%= form.radio_button :organization, "地方公務員", class: "form-check-input radio-button" %>地方公務員
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :job, "職種", class: "col-sm-3 col-form-label" %>
+            <%= form.label :job, "職種", class: "col-sm-3 col-form-label annotation" %>
               <div class = "col-sm-9">
                 <%= form.radio_button :job, "事務系", class: "form-check-input" %>事務系
                 <%= form.radio_button :job, "技術系", class: "form-check-input radio-button" %>技術系
             </div>
           </div>
           <div class = "row form-group form-parts">
-            <%= form.label :status, "現在の状況", class: "col-sm-3 col-form-label" %>
+            <%= form.label :status, "現在の状況", class: "col-sm-3 col-form-label annotation" %>
               <div class = "col-sm-9">
                 <%= form.radio_button :status, "現職", class: "form-check-input" %>現職
                 <%= form.radio_button :status, "退職済", class: "form-check-input radio-button" %>退職済

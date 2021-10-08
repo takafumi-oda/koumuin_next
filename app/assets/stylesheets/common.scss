@@ -36,7 +36,7 @@ ul {
 
 .search-box{
   background-color: white;
-  padding-right: 0 10px;
+  border: solid 1px black ;
 }
 
 #keyword{
@@ -97,6 +97,23 @@ ul {
 .content-wrapper{
   min-height: calc(100% - 100px);
 }
+.notice, .alert{
+  width: 100%;
+  height: 30px;
+  color: white;
+  margin: 0;
+  padding: 0 20px;
+  border: none;
+  border-radius: 0;
+  line-height: 30px;
+}
+
+.notice{
+  background-color: green;
+}
+.alert{
+  background-color: red;
+}
 
 .form-wrapper{
   display: flex;
@@ -109,7 +126,7 @@ ul {
   text-align: center;
   width: 100%;
   height: 40px;
-  line-height: 20px;
+  line-height: 40px;
 }
 
 .footer-wrapper p{
@@ -117,16 +134,39 @@ ul {
   color: white;
 }
 
+.field_with_errors {
+  display: contents;
+}
+
+.field_with_errors input{
+  border: solid 1px red;
+}
+
 .card-header{
   text-align: center;
 }
 
 .form-box{
-  width: 600px;
+  width: 750px;
 }
 
 .form-parts{
   margin: 10px 0;
+}
+
+.form-parts label{
+  text-align: center;
+}
+
+.annotation::after{
+  content: "必須";
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  margin-left: 5px;
+  padding: 2px;
+  vertical-align: middle;
 }
 
 .radio-button{
