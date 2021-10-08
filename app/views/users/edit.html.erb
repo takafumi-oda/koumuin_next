@@ -1,42 +1,64 @@
-<% if flash.alert %>
-  <p><%= flash.alert %></p>
-<% end %>
-
-<%= render "shared/error", obj: @user %>
-
-<h3>ユーザー情報の編集</h3>
-<%= form_with model: @user, local: true do |form| %>
-  <div><%= form.label :name, "ユーザー名" %></div>
-  <div><%= form.text_field :name, placeholder: "ユーザー名" %></div>
-  <div><%= form.label :email, "メールアドレス" %></div>
-  <div><%= form.email_field :email, placeholder:"メールアドレス" %></div>
-　<div><%= form.label :age, "年代" %></div>
-  <div>
-    <%= form.radio_button :age, "10代" %>10代
-    <%= form.radio_button :age, "20代" %>20代
-    <%= form.radio_button :age, "30代" %>30代
-    <%= form.radio_button :age, "40代" %>40代
-    <%= form.radio_button :age, "50代" %>50代
-    <%= form.radio_button :age, "60代以上" %>60代以上
+<div class = "content-wrapper form-wrapper">
+  <div class = "form-box">
+    <div class = "card">
+      <div class = "card-header">ユーザー情報の編集</div>
+      <div class = "card-body">
+        <%= form_with model: @user, class: "form-horizontal", local: true do |form| %>
+          <div class = "row form-group form-parts">
+            <%= form.label :name, "ユーザー名", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.text_field :name, class: "form-control", placeholder: "ユーザー名" %>
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :email, "メールアドレス", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.email_field :email, class: "form-control", placeholder:"メールアドレス" %>
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :age, "年代", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.radio_button :age, "10代", class: "form-check-input" %>10代
+              <%= form.radio_button :age, "20代", class: "form-check-input radio-button" %>20代
+              <%= form.radio_button :age, "30代", class: "form-check-input radio-button" %>30代
+              <%= form.radio_button :age, "40代", class: "form-check-input radio-button" %>40代
+              <%= form.radio_button :age, "50代", class: "form-check-input radio-button" %>50代
+              <%= form.radio_button :age, "60代以上", class: "form-check-input radio-button" %>60代以上
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :organization, "組織", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.radio_button :organization, "国家公務員", class: "form-check-input" %>国家公務員
+              <%= form.radio_button :organization, "地方公務員", class: "form-check-input radio-button" %>地方公務員
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :job, "職種", class: "col-sm-3 col-form-label annotation" %>
+              <div class = "col-sm-9">
+                <%= form.radio_button :job, "事務系", class: "form-check-input" %>事務系
+                <%= form.radio_button :job, "技術系", class: "form-check-input radio-button" %>技術系
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :status, "現在の状況", class: "col-sm-3 col-form-label annotation" %>
+              <div class = "col-sm-9">
+                <%= form.radio_button :status, "現職", class: "form-check-input" %>現職
+                <%= form.radio_button :status, "退職済", class: "form-check-input radio-button" %>退職済
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :introduction, "自己紹介", class: "col-sm-3 col-form-label" %>
+            <div class = "col-sm-9">
+              <%= form.text_area :introduction, class: "text-form", placeholder: "自己紹介" %>
+            </div>
+          </div>
+          <div class = "btn-position">
+            <%= form.submit "編集する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div><%= form.label :organization, "組織" %></div>
-  <div>
-    <%= form.radio_button :organization, "国家公務員" %>国家公務員
-    <%= form.radio_button :organization, "地方公務員" %>地方公務員
-  </div>
-  <div><%= form.label :job, "職種" %></div>
-  <div>
-    <%= form.radio_button :job, "事務系" %>事務系
-    <%= form.radio_button :job, "技術系" %>技術系
-  </div>
-  <div><%= form.label :status, "現在の状況" %></div>
-  <div>
-    <%= form.radio_button :status, "現職" %>現職
-    <%= form.radio_button :status, "退職済" %>退職済
-  </div>
-  <div><%= form.label :introduction, "自己紹介" %></div>
-  <div><%= form.text_area :introduction, placeholder: "自己紹介" %></div>
-  <div><%= form.submit "編集する" %></div>
-<% end %>
-
-<%= link_to "パスワードの変更", :edit_password %>
+</div>
