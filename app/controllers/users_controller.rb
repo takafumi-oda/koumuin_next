@@ -17,13 +17,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
+      if current_user
+        redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を更新しました"
+      else
+        redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
+      end
     else
       flash[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
       render :edit
@@ -41,8 +45,12 @@ class UsersController < ApplicationController
   def withdrawl
     @user = User.find(params[:id])
     @user.update(active: false)
-    reset_session
-    redirect_to root_path
+    if current_user
+      redirect_to admin_users_path
+    else
+      reset_session
+      redirect_to root_path
+    end
   end
 
   private
@@ -57,7 +65,9 @@ class UsersController < ApplicationController
       :organization,
       :job,
       :status,
-      :introduction
+      :introduction,
+      :admin,
+      :note
     )
   end
 end

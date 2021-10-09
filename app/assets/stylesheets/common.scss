@@ -151,9 +151,15 @@ ul {
   border: solid 1px red;
 }
 
+.card{
+  border-color: black;
+}
 .card-header{
   text-align: center;
   font-weight: bold;
+  color: black;
+  background-color: gainsboro;
+  border-color: black;
 }
 
 .form-box{
