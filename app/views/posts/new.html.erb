@@ -1,19 +1,26 @@
-<% if flash.notice %>
-  <p><%= flash.notice %></p>
-<% end %>
-
-
-<% if flash.alert %>
-  <p><%= flash.alert %></p>
-<% end %>
-
-<%= render "shared/error", obj: @post %>
-
-<h3>新規投稿</h3>
-<%= form_with model: @post, local: true do |form| %>
-  <div><%= form.label :title, "タイトル" %></div>
-  <div><%= form.text_field :title, placeholder: "タイトル" %></div>
-  <div><%= form.label :content, "本文" %></div>
-  <div><%= form.text_area :content, placeholder: "本文" %></div>
-  <div><%= form.submit "投稿" %></div>
-<% end %>
+<div class = "content-wrapper form-wrapper">
+  <div class = "form-box">
+    <div class = "card">
+      <div class = "card-header">新規投稿</div>
+      <div class = "card-body">
+        <%= form_with model: @post, local: true do |form| %>
+          <div class = "row form-group form-parts">
+            <%= form.label :title, "タイトル", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.text_field :title, class: "form-control", placeholder: "タイトル" %>
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :content, "本文", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.text_area :content, class: "form-control post-text", placeholder: "本文" %>
+            </div>
+          </div>
+          <div class = "btn-position">
+            <%= form.submit "投稿する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
