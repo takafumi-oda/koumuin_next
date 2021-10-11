@@ -81,6 +81,10 @@ ul {
   margin: auto;
 }
 
+.haeder-user a:hover, .haeder-user button:hover{
+  opacity: 0.6;
+}
+
 .user-menu{
   border: none;
   background-color: gainsboro;
@@ -105,6 +109,7 @@ ul {
 
 .content-wrapper{
   min-height: calc(100% - 100px);
+  background-color: #f2f7f7;
 }
 
 .notice, .alert{
@@ -154,6 +159,7 @@ ul {
 
 .card{
   border-color: black;
+  margin: 15px 0;
 }
 .card-header{
   text-align: center;
@@ -161,6 +167,15 @@ ul {
   color: black;
   background-color: gainsboro;
   border-color: black;
+}
+
+.card-name{
+  color: gray;
+  font-size: 12px;
+}
+
+.card-box{
+  margin-bottom: 15px;
 }
 
 .form-box{
@@ -196,9 +211,22 @@ ul {
 }
 
 .btn-position{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.btn-position div :first-child{
-  margin-bottom: 10px;
+.btn-position a{
+  margin: 0 15px;
+}
+
+.show-wrapper{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.show-box{
+  margin: 10px 0 20px 0;
 }
