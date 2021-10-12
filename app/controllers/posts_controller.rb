@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :login_required, only: %i[new create destroy]
 
   def index
-    @posts = Post.all.includes([:user])
+    @posts = Post.all.includes([:user, :replies]).sort_by{|post| post.most_recent_update}.reverse
   end
 
   def new

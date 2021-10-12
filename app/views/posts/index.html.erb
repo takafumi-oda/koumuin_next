@@ -34,7 +34,7 @@
           <td>
             <%= link_to "#{post.title}", post_path(post.id) %>
             <%= "#{post.user.name}" %>
-            <%= datetime_format(post.created_at) %>
+            <%= datetime_format(post.most_recent_update) %>
           </td>
         </tr>
       <% end %>

@@ -17,4 +17,12 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+
+  def most_recent_update
+    if self.replies.present?
+      self.replies.order("created_at DESC").first.created_at
+    else
+      self.created_at
+    end
+  end
 end
