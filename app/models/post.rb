@@ -25,4 +25,8 @@ class Post < ApplicationRecord
       self.created_at
     end
   end
+
+  def replies_count
+    self.replies.where(parent_id: nil).count
+  end
 end
