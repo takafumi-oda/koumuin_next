@@ -19,8 +19,9 @@
           <%= form_with scope: :session, url: login_path, local: true do |form| %>
             <%= form.hidden_field :email, value: "guest@email" %>
             <%= form.hidden_field :password, value: "guest" %>
-            <div class = "btn-position">
-              <%= form.submit "ゲストユーザーでログインする", class: "btn btn-outline-success top-btn" %>
+            <div class = "btn-position guest-btn-position">
+              <p>ユーザー登録せずに利用する方はこちらへ</p>
+              <%= form.submit "ゲストユーザーでログインする", class: "btn btn-outline-secondary top-btn" %>
             </div>
           <% end %>
         </div>
@@ -28,16 +29,25 @@
     </div>
   </div>
   <div class = "post-list-wrapper">
-    <table class = "post-list table">
-      <% @posts.each do |post| %>
-        <tr>
-          <td>
-            <%= link_to "#{post.title}", post_path(post.id) %>
-            <%= "#{post.user.name}" %>
-            <%= datetime_format(post.most_recent_update) %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+    <% @posts.each do |post| %>
+      <div class = "post-list">
+        <div class = "reply-count">
+          <p>回答数</p>
+          <p style = "font-size: 24px;"><%= "#{post.replies_count}件"%></p>
+        </div>
+        <div class = "post-right">
+          <div class = "post-create">
+            <div class = "post-user">
+              <i class = "fas fa-user-edit"></i><span><%= " #{post.user.name}" %></span>
+              <i class = "far fa-comment-dots"></i><span><%= " #{datetime_format(post.created_at)}" %></span>
+            </div>
+            <div class = "post-title"><%= link_to "#{post.title}", post_path(post.id) %></div>
+          </div>
+          <div class = "post-edit">
+            <i class = "fas fa-reply"></i><span><%= " #{datetime_format(post.most_recent_update)}" %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
