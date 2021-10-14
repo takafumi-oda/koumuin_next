@@ -4,6 +4,7 @@
   height: 600px;
   background-size: cover;
   background-image: image-url('background_image.jpg');
+  margin-bottom: 50px;
 }
 
 .top-wrapper::before{
@@ -36,10 +37,6 @@
 }
 .top-btn{
   width: 100%;
-}
-
-.post-list-wrapper{
-  padding: 50px 0;
 }
 
 .post-list{
