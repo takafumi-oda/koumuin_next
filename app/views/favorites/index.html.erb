@@ -1,13 +1,6 @@
-<h3>お気に入り一覧</h3>
-<% @favorites.each do |favorite| %>
-  <table>
-    <tr>
-      <th>件名</th>
-      <th>相談者名</th>
-    </tr>
-    <tr>
-      <td><%= link_to "#{favorite.post.title}", post_path(favorite.post.id) %></td>
-      <td><%= favorite.user.name %></td>
-    </tr>
-  </table>
-<% end %>
+<div class = "content-wrapper">
+  <div class = "container">
+    <h4 style = "padding-top: 20px;">お気に入り</h4>
+    <%= render "shared/post_list", posts: @posts %>
+  </div>
+</div>
