@@ -5,3 +5,28 @@
 .admin-table{
   text-align: center;
 }
+
+.admin-edit-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.admin-edit-wrapper div:first-child{
+  margin-right: 20px;
+}
+
+.admin-box{
+  margin: 10px 0 20px 0;
+  width: 500px;
+}
+
+.admin-edit-card{
+  height: 409px;
+}
+
+.admin-edit-text{
+  width: 100%;
+  height: 240px;
+}
