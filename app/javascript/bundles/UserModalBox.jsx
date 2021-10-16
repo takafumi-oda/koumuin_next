@@ -14,7 +14,7 @@ const UserModalBox = (props) => {
             <div className = "card-body">
               <div className = "card-box">
                 <p className = "card-name">ユーザー名</p>
-                <p className = "card-text">{props.user.name}</p>
+                <p className = "card-text">{props.user.active ? props.user.name : "退会したユーザー"}</p>
               </div>
               <div className = "card-box">
                 <p className = "card-name">年代</p>

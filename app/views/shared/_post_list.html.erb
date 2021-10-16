@@ -8,7 +8,7 @@
       <div class = "post-right">
         <div class = "post-create">
           <div class = "post-user">
-            <i class = "fas fa-user-edit"></i><span><%= " #{post.user.name}" %></span>
+            <i class = "fas fa-user-edit"></i><span><%= " #{post.user.active_user_name}" %></span>
             <i class = "far fa-comment-dots"></i><span><%= " #{datetime_format(post.created_at)}" %></span>
           </div>
           <div class = "post-title"><%= link_to "#{post.title}", post_path(post.id) %></div>
