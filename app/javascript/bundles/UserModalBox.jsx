@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = (props) => {
+const UserModalBox = (props) => {
   const closeModal = () =>{
     props.setShowModal(false);
   };
@@ -37,7 +37,7 @@ const Modal = (props) => {
                 <p>{props.user.introduction}</p>
               </div>
               <div className = "btn-position">
-                <button className = "close-button" onClick={closeModal}>Close</button>
+                <button className = "btn btn-light btn-sm" onClick={closeModal}>閉じる</button>
               </div>
             </div>
           </div>
@@ -49,4 +49,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default UserModalBox;

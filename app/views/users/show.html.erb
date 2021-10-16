@@ -35,7 +35,7 @@
           <div class = "btn-position">
             <%= link_to "設定", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
             <%= link_to "パスワード変更", edit_password_path(current_user.id), class: "btn btn-outline-primary" %>
-            <%= link_to "退会する", check_user_path, class: "btn btn-outline-danger" %></td>
+            <%= react_component("UserWithdrawlModal", props: { user: current_user }, prerender: false) %>
           </div>
         </div>
       </div>

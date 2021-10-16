@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
+import UserModalBox from "./UserModalBox";
 
 const UserModal = (props) => {
   const { user } = props;
@@ -11,7 +11,7 @@ const UserModal = (props) => {
   return (
     <>
       <p className="user-modal" onClick={ShowModal}>{user.name}</p>
-      <Modal showFlag={showModal} setShowModal={setShowModal} user={user} />
+      <UserModalBox showFlag={showModal} setShowModal={setShowModal} user={user} />
     </>
   );
 };
