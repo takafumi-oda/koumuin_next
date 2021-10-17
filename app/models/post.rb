@@ -10,11 +10,11 @@ class Post < ApplicationRecord
     favorites.find { |favorite| favorite.user_id == user.id } if user
   end
 
-  def self.search(search)
-    if search
-      Post.where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+  def self.search(keywords)
+    if keywords
+      self.where("title LIKE ? OR content LIKE ?", "%#{keywords}%", "%#{keywords}%")
     else
-      Post.all
+      self.all
     end
   end
 

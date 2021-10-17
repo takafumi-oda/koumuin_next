@@ -10,11 +10,11 @@ class Reply < ApplicationRecord
     likes.find { |like| like.user_id == user.id } if user
   end
 
-  def self.search(search)
-    if search
-      Reply.where("content LIKE ?", "%#{search}%")
+  def self.search(keywords)
+    if keywords
+      self.where("content LIKE ?", "%#{keywords}%")
     else
-      Reply.all
+      self.all
     end
   end
 end

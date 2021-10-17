@@ -1,8 +1,12 @@
 class SearchController < ApplicationController
   def search
-    @posts = Post.search(params[:keyword]).includes([:user])
-    @replies = Reply.search(params[:keyword])
-    search_object = @posts + Post.where(id: @replies.select(:post_id).distinct)
-    @search_posts = search_object.uniq
+    @search_posts = Post.all.includes([:user, :replies]) if params[:keyword].blank?
+    keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
+    keywords.each do |keyword|
+      @posts = Post.search(keyword).includes([:user, :replies])
+      @replies = Reply.search(keyword)
+      search_object = @posts + Post.where(id: @replies.select(:post_id).distinct).includes([:user, :replies])
+      @search_posts = search_object.uniq.sort_by { |post| post.most_recent_update }.reverse
+    end
   end
 end
