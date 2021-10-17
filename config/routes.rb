@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[new create edit update show] do
     member do
-      get 'check'
       patch 'withdrawl'
     end
   end

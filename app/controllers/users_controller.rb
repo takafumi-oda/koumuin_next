@@ -38,10 +38,6 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def check
-    @user = User.find(params[:id])
-  end
-
   def withdrawl
     @user = User.find(params[:id])
     @user.update(active: false)
