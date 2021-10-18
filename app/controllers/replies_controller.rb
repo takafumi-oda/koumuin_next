@@ -5,8 +5,18 @@ class RepliesController < ApplicationController
     @reply = Reply.create(reply_params)
     @reply.user = current_user
     if @reply.save
+      unless @reply.parent_id
+        flash[:notice] = "この相談に回答しました"
+      else
+        flash[:notice] = "この回答に返信しました"
+      end
       redirect_back(fallback_location: root_path)
     else
+      unless @reply.parent_id
+        flash[:alert] = "この相談への回答が登録できませんでした"
+      else
+        flash[:alert] = "この回答への返信が登録できませんでした"
+      end
       redirect_back(fallback_location: root_path)
     end
   end

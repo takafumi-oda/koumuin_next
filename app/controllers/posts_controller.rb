@@ -13,9 +13,9 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to post_path(@post.id), notice: "新しい投稿をしました"
+      redirect_to post_path(@post.id), notice: "新しい相談をしました"
     else
-      flash[:alert] = "新しい投稿に失敗しました"
+      flash[:alert] = "新しい相談の登録に失敗しました"
       render :new
     end
   end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to new_post_path, notice: "投稿を削除しました"
+    redirect_to root_path, notice: "相談を削除しました"
   end
 
   private
