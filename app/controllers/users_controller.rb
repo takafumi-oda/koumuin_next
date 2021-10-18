@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      if current_user
+      if current_user.admin
         redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を更新しました"
       else
         redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
