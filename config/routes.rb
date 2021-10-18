@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   resources :favorites, only: %i[index create destroy]
   get 'search', to: 'search#search'
+  get 'terms', to: 'text#terms'
+  get 'privacy', to: 'text#privacy'
 end

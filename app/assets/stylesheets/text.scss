@@ -1,0 +1,23 @@
+// Place all the styles related to the text controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.text-wrapper{
+  padding: 60px 120px;
+}
+
+.text-wrapper h3, .text-wrapper h5{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.text-wrapper h5{
+  margin-top: 20px;
+}
+.parent-ol{
+  padding-left: 2em;
+}
+
+.child-ol{
+  padding-left: 1em;
+}
