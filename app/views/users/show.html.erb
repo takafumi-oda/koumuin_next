@@ -4,34 +4,7 @@
     <div class = "show-box">
       <div class = "card">
         <div class = "card-body">
-          <div class = "card-box">
-            <p class = "card-name">ユーザー名</p>
-            <p class = "card-text"><%= @user.name %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">メールアドレス</p>
-            <p><%= @user.email %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">年代</p>
-            <p><%= @user.age %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">組織</p>
-            <p><%= @user.organization %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">職種</p>
-            <p><%= @user.job %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">現在の状況</p>
-            <p><%= @user.status %></p>
-          </div>
-          <div class = "card-box">
-            <p class = "card-name">自己紹介</p>
-            <p><%= @user.introduction %></p>
-          </div>
+          <%= render "shared/user_infomation", user: @user %>
           <div class = "btn-position">
             <%= link_to "設定", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
             <%= link_to "パスワード変更", edit_password_path(current_user.id), class: "btn btn-outline-primary" %>
