@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :login_required, only: %i[edit update show destroy]
+  before_action :login_required, only: %i[edit update show destroy posts]
 
   def new
     @user = User.new
@@ -46,6 +46,10 @@ class UsersController < ApplicationController
     else
       reset_session
     end
+  end
+
+  def posts
+    @posts = Post.where(user_id: current_user.id).includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
   end
 
   private

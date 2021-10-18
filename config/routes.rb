@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create edit update show] do
     member do
       patch 'withdrawl'
+      get 'posts'
     end
   end
   resources :password, only: %i[edit update]
