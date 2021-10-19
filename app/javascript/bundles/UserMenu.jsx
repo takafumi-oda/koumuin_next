@@ -14,7 +14,7 @@ const UserMenu = (props) => {
 
   return (
     <>
-      <button className="user-menu nav-link dropdown-toggle" onClick={ShowMenu}>メニュー</button>
+      <button className="user-menu dropdown-toggle" onClick={ShowMenu}>メニュー</button>
       <Menu showFlag={showMenu} setShowMenu={setShowMenu} user={user} />
     </>
   );
