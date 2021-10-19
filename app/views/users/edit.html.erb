@@ -1,12 +1,12 @@
 <div class = "content-wrapper form-wrapper">
   <div class = "form-box">
     <div class = "card">
-      <div class = "card-header">ユーザー情報の編集</div>
+      <div class = "card-header">設定</div>
       <div class = "card-body">
         <%= form_with model: @user, class: "form-horizontal", local: true do |form| %>
           <%= render "shared/user_form", form: form %>
           <div class = "btn-position">
-            <%= form.submit "編集する", class: "btn btn-primary" %>
+            <%= form.submit "変更する", class: "btn btn-primary" %>
           </div>
         <% end %>
       </div>
