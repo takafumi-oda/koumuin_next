@@ -1,6 +1,16 @@
 <div class = "content-wrapper">
   <% unless current_user %>
     <div class = "top-wrapper">
+      <div class = "top-message-box">
+        <p>公務員からの転職を考える人のための交流サイト</P>
+        <h1 class = "title" >公務員NEXT</h1>
+        <div class = "balloon-position">
+          <div class="balloon balloon1"><p>家族からの反対が•••</p></div>
+          <div class="balloon balloon2"><p>公務員以外じゃ通用しないかも</p></div>
+          <div class="balloon balloon3"><p>公務員をやめるなんてもったいない</p></div>
+        </div>
+        <p class = "top-message">同じ境遇の人と悩みを相談・共有して未来への一歩を踏み出そう</p>
+      </div>
       <div class = "top-login-form">
         <div class = "card">
           <div class = "card-body top-card-body">
@@ -30,5 +40,8 @@
       </div>
     </div>
   <% end %>
-  <%= render "shared/post_list", posts: @posts %>
+  <div class = "container">
+    <h4>最近の投稿</h4>
+    <%= render "shared/post_list", posts: @posts %>
+  </div>
 </div>
