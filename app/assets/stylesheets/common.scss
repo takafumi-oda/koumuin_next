@@ -136,6 +136,7 @@ ul {
 
 .content-wrapper{
   min-height: calc(100% - 120px);
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: #f2f7f7;
 }
@@ -156,10 +157,6 @@ ul {
 }
 .alert{
   background-color: red;
-}
-
-.container h4{
-  padding-top: 20px;
 }
 
 .form-wrapper{
@@ -222,8 +219,8 @@ ul {
 
 .card{
   border-color: black;
-  margin: 15px 0;
 }
+
 .card-header{
   text-align: center;
   font-weight: bold;
