@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     if params[:keyword].blank?
       @search_posts = Post.all.includes([:user, :replies])
     else
-      search_objects=[]
+      search_objects = []
       keywords = params[:keyword].split(/[[:blank:]]+/).select(&:present?)
       keywords.each do |keyword|
         posts = Post.search(keyword).includes([:user, :replies])
