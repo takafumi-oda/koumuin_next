@@ -1,15 +1,13 @@
-<div class = "content-wrapper">
-  <div class = "show-wrapper container">
-    <h4>ユーザー情報</h4>
-    <div class = "show-box">
-      <div class = "card">
-        <div class = "card-body">
-          <%= render "shared/user_infomation", user: @user %>
-          <div class = "btn-position">
-            <%= link_to "設定", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
-            <%= link_to "パスワード変更", edit_password_path(current_user.id), class: "btn btn-outline-primary" %>
-            <%= react_component("UserWithdrawlModal", props: { user: current_user }, prerender: false) %>
-          </div>
+<div class = "content-wrapper show-wrapper">
+  <h4>ユーザー情報</h4>
+  <div class = "show-box">
+    <div class = "card">
+      <div class = "card-body">
+        <%= render "shared/user_infomation", user: @user %>
+        <div class = "btn-position">
+          <%= link_to "設定", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
+          <%= link_to "パスワード変更", edit_password_path(current_user.id), class: "btn btn-outline-primary" %>
+          <%= react_component("UserWithdrawlModal", props: { user: current_user }, prerender: false) %>
         </div>
       </div>
     </div>
