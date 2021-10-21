@@ -287,12 +287,12 @@ ul {
 .show-wrapper{
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 500px;
+  align-items: center;
 }
 
 .show-box{
   margin: 10px 0 20px 0;
+  width: 500px;
 }
 
 .post-title{
