@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: %i[new create edit update show] do
     member do
-      get 'check'
       patch 'withdrawl'
+      get 'posts'
     end
   end
   resources :password, only: %i[edit update]
@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   resources :favorites, only: %i[index create destroy]
   get 'search', to: 'search#search'
+  get 'terms', to: 'text#terms'
+  get 'privacy', to: 'text#privacy'
 end

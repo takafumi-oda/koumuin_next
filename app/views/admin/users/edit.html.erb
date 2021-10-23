@@ -1,58 +1,39 @@
-<% if flash.alert %>
-  <p><%= flash.alert %></p>
-<% end %>
-
-<%= render "shared/error", obj: @user %>
-
-<table>
-  <tr>
-      <th>ユーザー名</th>
-      <td><%= @user.name %></td>
-  </tr>
-  <tr>
-      <th>メールアドレス</th>
-      <td><%= @user.email %></td>
-  </tr>
-    <tr>
-      <th>年代</th>
-      <td><%= @user.age %></td>
-  </tr>
-  <tr>
-      <th>組織</th>
-      <td><%= @user.organization %></td>
-  </tr>
-  <tr>
-      <th>職種</th>
-      <td><%= @user.job %></td>
-  </tr>
-    <tr>
-      <th>現在の状況</th>
-      <td><%= @user.status %></td>
-  </tr>
-  <tr>
-      <th>自己紹介</th>
-      <td><%= @user.introduction %></td>
-  </tr>
-    <tr>
-      <th>アクティブユーザー</th>
-      <td>
-        <% if @user.active %>
-          <p>active</p>
-        <% else %>
-          <p>退会済</p>
-        <% end %>
-      </td>
-  </tr>
-
-</table>
-
-<%= form_with model: @user, local: true do |form| %>
-  <div><%= form.label :admin, "管理者権限" %></div>
-  <div>
-    <%= form.radio_button :admin, true %>付与
-    <%= form.radio_button :admin, false %>削除
+<div class = "content-wrapper">
+  <div class = "admin-edit-wrapper">
+    <div>
+      <h4>ユーザー情報</h4>
+      <div class = "admin-box">
+        <div class = "card">
+          <div class = "card-body">
+            <%= render "shared/user_infomation", user: @user %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>管理者用メニュー</h4>
+      <div class = "admin-box">
+        <div class = "card admin-edit-card">
+          <div class = "card-body">
+            <%= form_with model: @user, local: true do |form| %>
+              <div class = "card-box">
+                <p class = "card-name"><%= form.label :admin, "管理者権限" %></p>
+                <div>
+                  <%= form.radio_button :admin, true, class: "form-check-input" %>付与
+                  <%= form.radio_button :admin, false, class: "form-check-input radio-button" %>削除
+                </div>
+              </div>
+              <div class = "card-box">
+                <p class = "card-name"><%= form.label :note, "備考（管理者用）" %></p>
+                <%= form.text_area :note, class: "admin-edit-text" %>
+              </div>
+              <div class = "btn-position">
+                <%= form.submit "編集する", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div><%= form.label :note, "備考（管理者用）" %></div>
-  <div><%= form.text_area :note %></div>
-  <div><%= form.submit "編集する" %></div>
-<% end %>
+</div>

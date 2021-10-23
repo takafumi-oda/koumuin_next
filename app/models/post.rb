@@ -10,11 +10,23 @@ class Post < ApplicationRecord
     favorites.find { |favorite| favorite.user_id == user.id } if user
   end
 
-  def self.search(search)
-    if search
-      Post.where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+  def self.search(keywords)
+    if keywords
+      self.where("title LIKE ? OR content LIKE ?", "%#{keywords}%", "%#{keywords}%")
     else
-      Post.all
+      self.all
     end
+  end
+
+  def most_recent_update
+    if self.replies.present?
+      self.replies.order("created_at DESC").first.created_at
+    else
+      self.created_at
+    end
+  end
+
+  def replies_count
+    self.replies.where(parent_id: nil).count
   end
 end

@@ -12,4 +12,12 @@ class User < ApplicationRecord
   validates :job, presence: true
   validates :status, presence: true
   validates :password, presence: true, on: :password_update
+
+  def active_user_name
+    if self.active
+      self.name
+    else
+      "退会したユーザー"
+    end
+  end
 end

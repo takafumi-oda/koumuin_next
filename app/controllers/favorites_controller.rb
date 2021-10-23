@@ -3,6 +3,10 @@ class FavoritesController < ApplicationController
 
   def index
     @favorites = Favorite.where(user_id: current_user.id)
+    @posts = []
+    @favorites.each do |favorite|
+      @posts.push(Post.find(favorite.post_id))
+    end
   end
 
   def create

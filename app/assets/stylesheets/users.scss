@@ -1,3 +1,14 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.withdrawl-modal-window{
+  border: solid 3px red;
+}
+.withdrawl-message{
+  text-align: center;
+}
+
+.withdrawl-message p:first-child{
+  font-size: 20px;
+}

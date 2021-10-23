@@ -8,12 +8,13 @@
       <% end %>
     </div>
     <div class = "header-link">
-      <div class = "header-ask"><%= link_to " 相談する", new_post_path, class: "far fa-comment-dots" %></div>
-      <ul class = "haeder-user">
-        <li><%= link_to " ログイン", login_path, class: "fas fa-sign-in-alt" unless current_user %></li>
-        <li><%= link_to " 新規会員登録", new_user_path, class: "fas fa-user-plus" unless current_user %></li>
-        <li><%= react_component("UserMenu", props: { user: current_user }, prerender: false) if current_user %></li>
-      </ul>
+      <%= link_to " 相談する", new_post_path, class: "far fa-comment-dots btn btn-primary" %>
+      <div class = "haeder-user">
+        <%= link_to " ログイン", login_path, class: "fas fa-sign-in-alt btn" unless current_user %>
+        <%= link_to " 新規登録", new_user_path, class: "fas fa-user-plus btn" unless current_user %>
+        <%= link_to " 管理者画面", admin_users_path, class: "fas fa-users-cog btn btn-dark" if current_user && current_user.admin? %>
+        <%= react_component("UserMenu", props: { user: current_user }, prerender: false) if current_user %>
+      </div>
     </div>
   </div>
 </header>

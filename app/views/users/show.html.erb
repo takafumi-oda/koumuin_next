@@ -1,43 +1,15 @@
-<% if flash.notice %>
-  <p><%= flash.notice %></p>
-<% end %>
-
-<h3>ユーザー情報</h3>
-<table>
-  <tr>
-      <th>ユーザー名</th>
-      <td><%= @user.name %></td>
-  </tr>
-  <tr>
-      <th>メールアドレス</th>
-      <td><%= @user.email %></td>
-  </tr>
-    <tr>
-      <th>年代</th>
-      <td><%= @user.age %></td>
-  </tr>
-  <tr>
-      <th>組織</th>
-      <td><%= @user.organization %></td>
-  </tr>
-  <tr>
-      <th>職種</th>
-      <td><%= @user.job %></td>
-  </tr>
-    <tr>
-      <th>現在の状況</th>
-      <td><%= @user.status %></td>
-  </tr>
-  <tr>
-      <th>自己紹介</th>
-      <td><%= @user.introduction %></td>
-  </tr>
-</table>
-
-<%= link_to "ユーザー情報の編集", :edit_user %>
-<%= link_to "退会する", check_user_path(@user.id) %>
-<%= link_to "ログアウト", logout_path, method: :delete %>
-
-<%if current_user.admin?%>
-  <%= link_to "管理者画面へ", :admin_users %>
-<% end %>
+<div class = "content-wrapper show-wrapper">
+  <h4>ユーザー情報</h4>
+  <div class = "show-box">
+    <div class = "card">
+      <div class = "card-body">
+        <%= render "shared/user_infomation", user: @user %>
+        <div class = "btn-position">
+          <%= link_to "設定", edit_user_path(current_user.id), class: "btn btn-outline-primary" %>
+          <%= link_to "パスワード変更", edit_password_path(current_user.id), class: "btn btn-outline-primary" %>
+          <%= react_component("UserWithdrawlModal", props: { user: current_user }, prerender: false) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

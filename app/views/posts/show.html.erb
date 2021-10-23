@@ -1,44 +1,60 @@
-<% if flash.notice %>
-  <p><%= flash.notice %></p>
-  <p><%= flash.alert %></p>
-<% end %>
-
-<h3><%= @post.title %></h3>
-<%= react_component("Favorite", props: { postId: @post.id, favoriteId: @post.favorite_by(current_user)&.id, user: current_user }, prerender: false) %>
-<%= react_component("UserModal", props: { user: @post.user }, prerender: false) %>
-<%= link_to "投稿の削除", :post, method: :delete, data: {confirm: "本当に削除しますか？"} if post_delete_permission? %>
-<h4><%= @post.content %></h4>
-
-<% @replies.each do |reply| %>
-  <% if reply.parent_id.nil? %>
-    <p>----------------------------------------------------</p>
-    <%= react_component("UserModal", props: { user: reply.user }, prerender: false) %>
-    <p><%= reply.content %></p>
-    <%= react_component("Like", props: { replyId: reply.id, likeId: reply.like_by(current_user)&.id, likeCount: reply.likes.size, user: current_user }, prerender: false) %>
-    <%= link_to "回答の削除", post_reply_path(@post,reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(reply) %>
-    <% @replies.each do |children_reply| %>
-      <% if reply.id == children_reply.parent_id %>
-        <p>・・・・・・・・・・・・・・・・・・・</p>
-        <%= react_component("UserModal", props: { user: children_reply.user }, prerender: false) %>
-        <p><%= children_reply.content %></p>
-        <%= react_component("Like", props: { replyId: children_reply.id, likeId: children_reply.like_by(current_user)&.id, likeCount: children_reply.likes.size, user: current_user }, prerender: false) %>
-        <%= link_to "返信の削除", post_reply_path(@post,children_reply.id), method: :delete, data: {confirm: "本当に削除しますか？"} if reply_delete_permission?(children_reply) %>
+<div class = "content-wrapper">
+  <div class = "post-box">
+    <div class = "post-box-title">
+      <h4><%= @post.title %></h4>
+      <%= react_component("Favorite", props: { postId: @post.id, favoriteId: @post.favorite_by(current_user)&.id, user: current_user }, prerender: false) %>
+    </div>
+    <div class = "post-box-infomation">
+      <%= react_component("UserModal", props: { user: @post.user }, prerender: false) %>
+      <p><%= "相談日時：#{datetime_format(@post.created_at)}" %></p>
+      <p style = "font-size: 16px;"><%= "回答数：#{@post.replies_count}件"%></p>
+    </div>
+    <div class = "post-box-content">
+      <%= safe_join(@post.content.split("\n"),tag(:br)) %>
+    </div>
+    <div class = "post-box-button">
+      <% if post_delete_permission? || current_user.admin? %>
+        <%= link_to "相談を削除する", post_path(@post), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <p>※回答がない場合のみ可能</p>
+      <% end %>
+    </div>
+    <div class = "reply-form-box">
+      <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+        <%= form.text_area :content, class: "form-control", placeholder: "回答を入力する" %>
+        <%= form.hidden_field :post_id, value: @post.id %>
+        <div class = "btn-position">
+          <%= form.submit "回答する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class = "replies-box">
+    <h4>回答</h4>
+    <% @replies.each do |reply| %>
+      <% if reply.parent_id.nil? %>
+        <div class = "reply-box">
+          <div class = "parent-reply-box">
+            <%= render "shared/reply_form", { post: @post, reply: reply } %>
+          </div>
+            <% @replies.each do |children_reply| %>
+              <% if reply.id == children_reply.parent_id %>
+                <div class = "children-reply-box">
+                  <%= render "shared/reply_form", { post: @post, reply: children_reply } %>
+                </div>
+              <% end %>
+            <% end %>
+            <div class = "reply-form-box">
+              <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+                <%= form.text_area :content, class: "form-control", placeholder: "返信を入力する" %>
+                <%= form.hidden_field :post_id, value: @post.id %>
+                <%= form.hidden_field :parent_id, value: reply.id %>
+                <div class = "btn-position">
+                  <%= form.submit "返信する", class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            </div>
+        </div>
       <% end %>
     <% end %>
-    <p>・・・・・・・・・・・・・・・・・・・</p>
-    <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
-      <div><%= form.label :content, "この回答に返信する" %></div>
-      <div><%= form.text_area :content, placeholder: "返信を入力してください" %></div>
-      <%= form.hidden_field :post_id, value: @post.id %>
-      <%= form.hidden_field :parent_id, value: reply.id %>
-      <div><%= form.submit "返信" %></div>
-    <% end %>
-  <% end %>
-<% end %>
-<p>----------------------------------------------------</p>
-<%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
-  <div><%= form.label :content, "回答する" %></div>
-  <div><%= form.text_area :content, placeholder: "回答を入力してください" %></div>
-  <%= form.hidden_field :post_id, value: @post.id %>
-  <div><%= form.submit "回答" %></div>
-<% end %>
+  </div>
+</div>

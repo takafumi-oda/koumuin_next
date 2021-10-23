@@ -1,6 +1,6 @@
 module PostsHelper
   def datetime_format(datetime)
-    datetime.strftime("%Y年%m月%d日%-H時%M分")
+    datetime.strftime("%Y/%m/%d %-H:%M")
   end
 
   def post_delete_permission?

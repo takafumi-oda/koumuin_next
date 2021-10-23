@@ -1,17 +1,47 @@
-<div class = "wrapper">
-  <div class = "top-wrapper">
-  </div>
-  <div class = "post-list-wrapper">
-    <table class = "post-list table">
-      <% @posts.each do |post| %>
-        <tr>
-          <td>
-            <%= link_to "#{post.title}", post_path(post.id) %>
-            <%= "#{post.user.name}" %>
-            <%= datetime_format(post.created_at) %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+<div class = "content-wrapper">
+  <% unless current_user %>
+    <div class = "top-wrapper">
+      <div class = "top-message-box">
+        <p>公務員からの転職を考える人のための交流サイト</P>
+        <h1 class = "title" >公務員NEXT</h1>
+        <div class = "balloon-position">
+          <div class="balloon balloon1"><p>家族からの反対が•••</p></div>
+          <div class="balloon balloon2"><p>公務員以外じゃ通用しないかも</p></div>
+          <div class="balloon balloon3"><p>公務員をやめるなんてもったいない</p></div>
+        </div>
+        <p class = "top-message">同じ境遇の人と悩みを相談・共有して未来への一歩を踏み出そう</p>
+      </div>
+      <div class = "top-login-form">
+        <div class = "card">
+          <div class = "card-body top-card-body">
+            <%= form_with scope: :session, url: login_path, class: "form-horizontal", local: true do |form| %>
+              <div class = "form-group top-form-group">
+                <%= form.label :email, "メールアドレス", class: "card-name" %>
+                <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+              </div>
+              <div class = "form-group">
+                <%= form.label :password, "パスワード", class: "card-name" %>
+                <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+              </div>
+              <div class = "btn-position">
+                <%= form.submit "ログイン", class: "btn btn-primary top-btn" %>
+              </div>
+            <% end %>
+            <%= form_with scope: :session, url: login_path, local: true do |form| %>
+              <%= form.hidden_field :email, value: "guest@email" %>
+              <%= form.hidden_field :password, value: "guest" %>
+              <div class = "btn-position guest-btn-position">
+                <p>ユーザー登録せずに利用する方はこちらへ</p>
+                <%= form.submit "ゲストユーザーでログインする", class: "btn btn-outline-secondary top-btn" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class = "container">
+    <h4>最近の投稿</h4>
+    <%= render "shared/post_list", posts: @posts %>
   </div>
 </div>

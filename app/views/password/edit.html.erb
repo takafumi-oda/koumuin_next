@@ -1,12 +1,26 @@
-<% if flash.alert %>
-  <p class="alert"><%= flash.alert %></p>
-<% end %>
-
-<%= render "shared/error", obj: @user %>
-
-<h3>パスワード変更</h3>
-<%= form_with model: @user, local: true, url: {controller: 'password', action: 'update' } do |form| %>
-  <%= form.password_field :password, placeholder: "新しいパスワード" %>
-  <%= form.password_field :password_confirmation, placeholder: "新しいパスワード（確認）" %>
-  <%= form.submit "パスワードを変更" %>
-<% end %>
+<div class = "content-wrapper form-wrapper">
+  <div class = "form-box">
+    <div class = "card">
+      <div class = "card-header">パスワードの変更</div>
+      <div class = "card-body">
+        <%= form_with model: @user, local: true, url: {controller: 'password', action: 'update' } do |form| %>
+          <div class = "row form-group form-parts">
+            <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
+            </div>
+          </div>
+          <div class = "row form-group form-parts">
+            <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label annotation" %>
+            <div class = "col-sm-9">
+              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワード(確認)" %>
+            </div>
+          </div>
+          <div class = "btn-position">
+            <%= form.submit "パスワードを変更する", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

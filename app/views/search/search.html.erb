@@ -1,12 +1,7 @@
-<h3>検索結果</h3>
-  <table class = "post-list table">
-    <% @search_posts.each do |search_posts| %>
-      <tr>
-        <td>
-          <%= link_to "#{search_posts.title}", post_path(search_posts.id) %>
-          <%= "#{search_posts.user.name}" %>
-          <%= datetime_format(search_posts.created_at) %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+<div class = "content-wrapper">
+  <div class = "container">
+    <h4>検索結果</h4>
+    <p style = "padding-top: 15px;"><%= "検索キーワード：#{params[:keyword]}" %></p>
+    <%= render "shared/post_list", posts: @search_posts %>
+  </div>
+</div>

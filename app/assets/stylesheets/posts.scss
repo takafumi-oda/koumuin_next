@@ -1,13 +1,11 @@
-.wrapper{
-  text-align: center;
-}
-
 .top-wrapper{
   position: relative;
+  top: -20px;
   width: 100%;
   height: 600px;
   background-size: cover;
   background-image: image-url('background_image.jpg');
+  margin-bottom: 50px;
 }
 
 .top-wrapper::before{
@@ -20,43 +18,311 @@
   content: ' ';
 }
 
-.post-list-wrapper{
-  display: inline-block;
-  width: 1024px;
-  text-align: center;
+.top-message-box{
+  position: absolute;
+  top: 120px;
+  left: 60px;
+  color: white;
+}
+
+.top-message-box h1{
+  font-size: 48px;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.top-message-box h1, .top-message-box > p{
+  animation-name: top-animation;
+  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-fill-mode: both;
+}
+
+@keyframes top-animation{
+  0% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.balloon-position{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.balloon{
+  position: relative;
+  margin: 2em 0 2em 40px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 50%;
+  width: 240px;
+  height: 120px;
+  color: black;
+}
+
+.balloon p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.balloon:before{
+  content: "";
+  position: absolute;
+  left: -25px;
+  width: 13px;
+  height: 12px;
+  bottom: -10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.balloon:after{
+  content: "";
+  position: absolute;
+  left: -10px;
+  width: 20px;
+  height: 18px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.balloon1{
+  top: -30px;
+  left: 30px;
+  animation-name: balloon1-animation;
+  animation-duration: 3s;
+}
+
+@keyframes balloon1-animation{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.balloon2{
+  bottom: -30px;
+  left: -10px;
+  animation-name: balloon2-animation;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes balloon2-animation{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.balloon3{
+  top: -20px;
+  left: 0;
+  animation-name: balloon3-animation;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes balloon3-animation{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.top-message{
+  font-size: 24px;
+}
+
+.top-login-form{
+  position: absolute;
+  top: 130px;
+  right: 50px;
+  width: 400px;
+  animation-name: top-animation;
+  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-fill-mode: both;
+}
+
+.top-card-body{
+  padding: 20px;
+}
+
+.top-form-group{
+  margin-bottom: 15px;
+}
+
+.guest-btn-position{
+  display: block;
+}
+.top-btn{
+  width: 100%;
 }
 
 .post-list{
-  table-layout: fixed;
-  margin-top: 50px;
+  display: flex;
+  margin: 0 auto;
+  width: 1000px;
+  border-bottom: solid 1px lightgray;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
-.post-list tr{
-  height: 50px;
-  line-height: 50px;
+.reply-count{
+  text-align: center;
+  width: 10%;
+  height: 100%;
+ }
+
+ .post-right{
+  width: 88%;
+ }
+
+ .post-create{
+  height: auto;
+}
+
+.post-user{
+  margin-bottom: 10px;
+}
+
+.post-user span{
+  margin-right: 20px;
+}
+
+.post-title{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.post-title a{
+  text-decoration: none;
+}
+
+.post-title a:hover{
+  text-decoration: underline;
+}
+
+.post-edit{
+  text-align: right;
+}
+
+.user-modal{
+  color: blue;
+  text-decoration: underline;
 }
 
 .user-modal:hover{
-  text-decoration: underline;
-
+  opacity: 0.6;
 }
 
-.overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
+.post-text{
+  height: 350px;
+}
+
+.post-box, .reply-box{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border: solid 1px black;
+  padding:  20px;
+  margin: auto;
+  width: 1000px;
 }
 
-.modal-window{
-  background: white;
-  padding: 10px;
-  border-radius: 3px;
-  width: 300px;
-  height: 400px;
+.post-box > div, .parent-reply-box > div, .children-reply-box > div{
+  margin-top: 15px;
+}
+
+.post-box-title{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.post-box-title h4{
+  width: calc(100% - 24px);
+}
+
+.post-box-infomation, .reply-box-infomation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-box-infomation > *, .reply-box-infomation > *{
+  margin-right: 20px;
+}
+
+.post-box-button{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.post-box-button p{
+  color: red;
+  font-size: 10px;
+}
+
+.post-box-content, .reply-box-content{
+  font-size: 20px;
+}
+
+.reply-form-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reply-form-box textarea{
+  width: 956px;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.reply-form-box textarea:focus{
+  height: 350px;
+}
+
+.replies-box h4{
+  width: 1000px;
+  margin: auto;
+  padding: 30px 0 15px;
+}
+
+.reply-box{
+  margin-bottom: 10px;
+}
+
+.children-reply-box{
+  border-top: solid 1px gray;
+  padding-bottom: 15px;
+  margin-top: 30px;
+  padding-left: 5%;
+}
+
+.reply-box-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
