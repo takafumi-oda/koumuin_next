@@ -14,7 +14,7 @@ class SearchController < ApplicationController
       if keywords.length == 1
         @search_posts = search_objects.sort_by { |array| array.most_recent_update }.reverse
       else
-        @search_posts = search_objects.group_by{ |e| e }.reject { |key, value| value.size < keywords.length }.map(&:first).sort_by { |array| array.most_recent_update }.reverse
+        @search_posts = search_objects.group_by { |e| e }.reject { |key, value| value.size < keywords.length }.map(&:first).sort_by { |array| array.most_recent_update }.reverse
       end
     end
   end
