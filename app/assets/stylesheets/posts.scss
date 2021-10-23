@@ -1,5 +1,6 @@
 .top-wrapper{
   position: relative;
+  top: -20px;
   width: 100%;
   height: 600px;
   background-size: cover;
@@ -225,10 +226,103 @@
   text-align: right;
 }
 
+.user-modal{
+  color: blue;
+  text-decoration: underline;
+}
+
 .user-modal:hover{
   opacity: 0.6;
 }
 
 .post-text{
   height: 350px;
+}
+
+.post-box, .reply-box{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: solid 1px black;
+  padding:  20px;
+  margin: auto;
+  width: 1000px;
+}
+
+.post-box > div, .parent-reply-box > div, .children-reply-box > div{
+  margin-top: 15px;
+}
+
+.post-box-title{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.post-box-title h4{
+  width: calc(100% - 24px);
+}
+
+.post-box-infomation, .reply-box-infomation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.post-box-infomation > *, .reply-box-infomation > *{
+  margin-right: 20px;
+}
+
+.post-box-button{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.post-box-button p{
+  color: red;
+  font-size: 10px;
+}
+
+.post-box-content, .reply-box-content{
+  font-size: 20px;
+}
+
+.reply-form-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.reply-form-box textarea{
+  width: 956px;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.reply-form-box textarea:focus{
+  height: 350px;
+}
+
+.replies-box h4{
+  width: 1000px;
+  margin: auto;
+  padding: 30px 0 15px;
+}
+
+.reply-box{
+  margin-bottom: 10px;
+}
+
+.children-reply-box{
+  border-top: solid 1px gray;
+  padding-bottom: 15px;
+  margin-top: 30px;
+  padding-left: 5%;
+}
+
+.reply-box-footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
