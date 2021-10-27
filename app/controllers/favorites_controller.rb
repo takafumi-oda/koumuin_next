@@ -7,6 +7,7 @@ class FavoritesController < ApplicationController
     @favorites.each do |favorite|
       @posts.push(Post.find(favorite.post_id))
     end
+    @posts = Kaminari.paginate_array(@posts).page(params[:page]).per(10)
   end
 
   def create

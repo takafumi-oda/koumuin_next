@@ -49,7 +49,9 @@ class UsersController < ApplicationController
   end
 
   def posts
-    @posts = Post.where(user_id: current_user.id).includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
+    @posts = Kaminari.paginate_array(
+      Post.where(user_id: current_user.id).includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
+    ).page(params[:page]).per(10)
   end
 
   private

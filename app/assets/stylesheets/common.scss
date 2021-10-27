@@ -298,3 +298,10 @@ ul {
 .post-title{
   font-size: 20px;
 }
+
+.admin-container nav, .post-list-wrapper nav{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
