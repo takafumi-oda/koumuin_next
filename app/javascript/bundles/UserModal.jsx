@@ -10,7 +10,7 @@ const UserModal = (props) => {
 
   return (
     <>
-      <p className="user-modal" onClick={ShowModal}>{user.active ? user.name : "退会したユーザー"}</p>
+      <span>相談者：</span><span className="user-modal" onClick={ShowModal}>{user.active ? user.name : "退会したユーザー"}</span>
       <UserModalBox showFlag={showModal} setShowModal={setShowModal} user={user} />
     </>
   );
