@@ -4,6 +4,10 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = User.all.page(params[:page]).per(10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

@@ -1,6 +1,8 @@
 <div class = "content-wrapper">
   <div class = "container">
     <h4>これまでした相談</h4>
-    <%= render "shared/post_list", posts: @posts %>
+    <div id = "users-posts-pagenate">
+      <%= render "shared/post_list", posts: @posts %>
+    </div>
   </div>
 </div>

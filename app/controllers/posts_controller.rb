@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @posts = Kaminari.paginate_array(
       Post.all.includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
     ).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
