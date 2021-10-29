@@ -2,6 +2,8 @@
   <div class = "container">
     <h4>検索結果</h4>
     <p style = "padding-top: 15px;"><%= "検索キーワード：#{params[:keyword]}" %></p>
-    <%= render "shared/post_list", posts: @search_posts %>
+    <div id = "search-pagenate">
+      <%= render "shared/post_list", posts: @search_posts %>
+    </div>
   </div>
 </div>

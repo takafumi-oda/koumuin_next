@@ -1,4 +1,4 @@
-<div class = "post-list-wrapper">
+<div class = "post-list-wrapper" id="post-page">
   <% posts.each do |post| %>
     <div class = "post-list">
       <div class = "reply-count">
@@ -19,4 +19,5 @@
       </div>
     </div>
   <% end %>
+  <%= paginate posts, :remote => true %>
 </div>

@@ -1,34 +1,9 @@
 <div class = "content-wrapper">
-  <div class = "container">
-    <h4>ユーザー管理</h4>
-    <table class = "table table-striped table-light table-bordered align-middle table-sm admin-table">
-      <tr class = "table-dark">
-        <th>ID</th>
-        <th>ユーザー名</th>
-        <th>メールアドレス</th>
-        <th>アクティブ<br>ユーザー</th>
-        <th>備考<br>（管理者用）</th>
-        <th>編集<br>（管理者用）</th>
-        <th>強制退会</th>
-      </tr>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= user.id %></td>
-          <td><%= user.name %></td>
-          <td><%= user.email %></td>
-          <td>
-            <% if user.active %>
-              <p>○</p>
-            <% else %>
-              <p>退会済</p>
-            <% end %>
-          </td>
-          <td><%= user.note %></td>
-    　    <td><%= link_to "編集", edit_admin_user_path(user.id), class: "btn btn-outline-primary btn-sm" %></td>
-          <td><%= link_to "強制退会", withdrawl_user_path(user.id), class: "btn btn-outline-danger btn-sm", method: :patch, data: {confirm: "本当に退会させますか？"} if user.active %></td>
-        </tr>
-      <% end %>
-    </table>
+  <div class = "container admin-container">
+    <h4 style = "margin-bottom: 15px;">ユーザー管理</h4>
+    <div id = "admin-pagenate">
+        <%= render "shared/admin_user_index" %>
+    </div>
     <p>※相談・回答の削除は、各相談ページから可能（管理者権限であれば、回答ありの相談も削除可能）</p>
   </div>
 </div>

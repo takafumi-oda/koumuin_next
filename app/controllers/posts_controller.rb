@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   before_action :login_required, only: %i[new create destroy]
 
   def index
-    @posts = Post.all.includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
+    @posts = Kaminari.paginate_array(
+      Post.all.includes([:user, :replies]).sort_by { |post| post.most_recent_update }.reverse
+    ).page(params[:page]).per(10)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

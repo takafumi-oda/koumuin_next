@@ -206,7 +206,7 @@ ul {
   background: white;
   padding: 10px;
   border-radius: 3px;
-  min-width: 300px;
+  width: 400px;
 }
 
 .field_with_errors {
@@ -236,6 +236,10 @@ ul {
 
 .card-box{
   margin-bottom: 15px;
+}
+
+.card-box p{
+  white-space: pre-wrap;
 }
 
 .form-box{
@@ -297,4 +301,11 @@ ul {
 
 .post-title{
   font-size: 20px;
+}
+
+.admin-container nav, .post-list-wrapper nav{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
