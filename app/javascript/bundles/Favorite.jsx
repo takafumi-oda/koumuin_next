@@ -23,9 +23,10 @@ const Favorite = (props) => {
   }
 
   return (
-    <>
-      <StarFill color={id? 'gold' : 'gray'} size={24} onClick={clicked}/>
-    </>
+    <button className = "favorite-box" onClick={clicked}>
+      <StarFill color={id? 'gold' : 'gray'} size={24}/>
+      <span>お気に入り</span>
+    </button>
   );
 };
 

@@ -26,10 +26,10 @@ const Like = (props) => {
   }
 
   return (
-    <>
-      <HeartFill color={id? 'red' : 'gray'} size={24} onClick={clicked}/>
-      {count}
-    </>
+    <div className = "like-box" onClick={clicked}>
+      <HeartFill color={id? 'red' : 'gray'} size={24}/>
+      <span style={id? { color: 'red' } : { color: 'gray'}}>{count}</span>
+    </div>
   );
 };
 
