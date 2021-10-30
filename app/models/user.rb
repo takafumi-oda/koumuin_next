@@ -5,13 +5,14 @@ class User < ApplicationRecord
   has_many :likes, dependent: :nullify
   has_many :favorites, dependent: :destroy
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :password, presence: true, on: :password_update, length: { minimum: 6 }
   validates :age, presence: true
   validates :organization, presence: true
   validates :job, presence: true
   validates :status, presence: true
-  validates :password, presence: true, on: :password_update
+  validates :introduction, length: { maximum: 100 }
 
   def active_user_name
     if self.active

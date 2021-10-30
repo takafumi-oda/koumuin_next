@@ -1,7 +1,7 @@
 <div class = "row form-group form-parts">
   <%= form.label :name, "ユーザー名", class: "col-sm-3 col-form-label annotation" %>
   <div class = "col-sm-9">
-    <%= form.text_field :name, class: "form-control", placeholder: "ユーザー名" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "ユーザー名（20文字以下）" %>
   </div>
 </div>
 <div class = "row form-group form-parts">
@@ -14,13 +14,13 @@
   <div class = "row form-group form-parts">
     <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label annotation" %>
     <div class = "col-sm-9">
-      <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
+      <%= form.password_field :password, class: "form-control", placeholder: "パスワード（６文字以上）" %>
     </div>
   </div>
   <div class = "row form-group form-parts">
     <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label annotation" %>
     <div class = "col-sm-9">
-      <%= form.password_field :password_confirmation, class: "form-control", placeholder: "パスワード(確認)" %>
+      <%= form.password_field :password_confirmation, class: "form-control", placeholder: "上記と同じパスワードを入力" %>
     </div>
   </div>
 <% end %>

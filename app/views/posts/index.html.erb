@@ -28,8 +28,8 @@
               </div>
             <% end %>
             <%= form_with scope: :session, url: login_path, local: true do |form| %>
-              <%= form.hidden_field :email, value: "guest@email" %>
-              <%= form.hidden_field :password, value: "guest" %>
+              <%= form.hidden_field :email, value: "guest@email.co.jp" %>
+              <%= form.hidden_field :password, value: "guestpass" %>
               <div class = "btn-position guest-btn-position">
                 <p>ユーザー登録せずに利用する方はこちらへ</p>
                 <%= form.submit "ゲストユーザーでログインする", class: "btn btn-outline-secondary top-btn" %>
