@@ -110,7 +110,7 @@ RSpec.describe "Users", type: :system do
         it "遷移成功" do
           visit user_path(user.id)
           click_on "設定"
-          expect(current_path).to eq edit_user_path(user.id)
+          expect(page).to have_current_path edit_user_path(user.id), ignore_query: true
         end
       end
 
@@ -118,13 +118,10 @@ RSpec.describe "Users", type: :system do
         it "遷移成功" do
           visit user_path(user.id)
           click_on "パスワード変更"
-          expect(current_path).to eq edit_password_path(user.id)
+          expect(page).to have_current_path edit_password_path(user.id), ignore_query: true
         end
       end
     end
   end
-
-
-
 
 end
