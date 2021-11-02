@@ -24,12 +24,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       if current_user.admin
-        redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を更新しました"
+        redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を変更しました"
       else
-        redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
+        redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を変更しました"
       end
     else
-      flash[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
+      flash[:alert] = "「#{@user.name}」のユーザー情報の変更に失敗しました"
       render :edit
     end
   end
