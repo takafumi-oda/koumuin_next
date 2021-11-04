@@ -39,8 +39,13 @@ jobs:
       - run: bundle exec rails db:schema:load
       - run: bundle exec rspec
       - run: bundle exec rubocop
+      - store_test_results:
+          path: /tmp/test-results
       - store_artifacts:
-          path: tmp/screenshots/
+          path: /tmp/test-results
+          destination: test-results
+      - store_artifacts:
+          path: /tmp/screenshots
   deploy:
     docker:
       - image: circleci/ruby:2.7.3-node-browsers
