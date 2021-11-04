@@ -39,8 +39,17 @@ jobs:
       - run: bundle exec rails db:schema:load
       - run: bundle exec rspec
       - run: bundle exec rubocop
+      - run:
+        name: Creating Dummy Artifacts
+        command: |
+          echo "my artifact file" > /tmp/art-1;
+          mkdir /tmp/artifacts;
+          echo "my artifact files in a dir" > /tmp/artifacts/art-2;
       - store_artifacts:
-          path: tmp/capybara/
+          path: /tmp/art-1
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
   deploy:
     docker:
       - image: circleci/ruby:2.7.3-node-browsers
