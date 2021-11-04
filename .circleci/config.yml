@@ -39,6 +39,8 @@ jobs:
       - run: bundle exec rails db:schema:load
       - run: bundle exec rspec
       - run: bundle exec rubocop
+      - store_artifacts:
+          path: tmp/capybara/
   deploy:
     docker:
       - image: circleci/ruby:2.7.3-node-browsers
