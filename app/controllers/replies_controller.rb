@@ -24,12 +24,14 @@ class RepliesController < ApplicationController
   end
 
   def destroy
-    @reply = Reply.find(params[:id]).destroy
+    @replies = Reply.where(parent_id: params[:id]).destroy_all
+    @reply = Reply.find(params[:id])
     unless @reply.parent_id
       flash[:notice] = "回答を削除しました"
     else
       flash[:notice] = "返信を削除しました"
     end
+    @reply.destroy
     redirect_back(fallback_location: root_path)
   end
 

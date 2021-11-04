@@ -13,7 +13,7 @@
       <%= safe_join(@post.content.split("\n"),tag(:br)) %>
     </div>
     <div class = "post-box-button">
-      <% if post_delete_permission? || current_user && current_user.admin? %>
+      <% if post_delete_permission?(@post, @replies) %>
         <%= link_to "相談を削除する", post_path(@post), method: :delete, class: "btn btn-outline-danger btn-sm" %>
         <p>※回答がない場合のみ可能</p>
       <% end %>

@@ -20,18 +20,24 @@ jobs:
           DB_HOST: 127.0.0.1
           RAILS_ENV: test
           BUNDLER_VERSION: 2.1.4
-      - image: circleci/mysql:8.0.25
+      - image: circleci/mysql:8.0.26
         command: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           MYSQL_ROOT_HOST: '%'
     steps:
+      - run:
+          command: chromedriver
+          background: true
       - checkout
       - ruby/install-deps
       - run: mv config/database.yml.ci config/database.yml
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
+      - run:
+          name: yarn Install
+          command: yarn install
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
       - run: bundle exec rspec

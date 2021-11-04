@@ -7,13 +7,13 @@
           <div class = "row form-group form-parts">
             <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
-              <%= form.password_field :password, class: "form-control", placeholder: "新しいパスワード" %>
+              <%= form.password_field :password, class: "form-control", placeholder: "新しいパスワード（６文字以上）" %>
             </div>
           </div>
           <div class = "row form-group form-parts">
             <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label annotation" %>
             <div class = "col-sm-9">
-              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワード(確認)" %>
+              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "上記と同じパスワードを入力" %>
             </div>
           </div>
           <div class = "btn-position">
