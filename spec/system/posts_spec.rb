@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
   let(:user) { create(:test_user) }
-  let!(:posts) { create_list(:post, 10, user_id: user.id)}
+  let!(:posts) { create_list(:post, 10, user_id: user.id) }
   let!(:post) { create(:post, title: "テスト相談11", user_id: user.id) }
 
   describe "ページネーション機能の検証", js: true do
