@@ -1,24 +1,28 @@
-# README
+# 転職を考える公務員のための交流サイト「公務員NEXT」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 1. サービス概要
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## 2. 使用技術
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+## 3. インフラ構成図
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 4. ER 図
 
-* ...
+
+
+## 5. サービスの特徴
+
+
+
+## 6. サービスの機能一覧
+
+
+## 作者
+
+-   Takafumi Oda
