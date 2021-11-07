@@ -1,24 +1,85 @@
-# README
+# 「公務員NEXT」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## 1. サービス概要
+**転職を考える公務員のための交流サイトです。**
 
-* Ruby version
+![top-page](https://user-images.githubusercontent.com/79225764/140659191-d32939a7-6274-465e-8dfa-a703c943895b.jpeg)
 
-* System dependencies
+  URL ▶︎ https://www.koumuin-next.com
+-   PCからご利用ください。（スマホへの対応は今後予定しています。）
+-   「トップページ」の**ゲストユーザーでログインする**ボタンを押していただいたら、ユーザー登録をせずに利用できます。
+-   各相談ページの閲覧のみであれば、ログインをせずに利用できます。
 
-* Configuration
+<br>
 
-* Database creation
+**開発の経緯**
 
-* Database initialization
+自分自身が転職を意識し始めた際に、「公務員から民間企業に転職できるのだろうか」、「家族からは反対されないだろうか」などといった不安が頭によぎり、随分と調べました。
 
-* How to run the test suite
+その中で、公務員から民間への転職を考えている人は一定数いること、**同じような不安を持っている人がいる**ことを知りました。
 
-* Services (job queues, cache servers, search engines, etc.)
+結局、転職できるか、できないかは、本人が行動するかどうかですが、**周囲に相談しにくいこの問題について、同じ境遇の人と交流ができれば、最初の一歩を踏み出すきっかけにはなる**と考え、このサービスを開発しました。
 
-* Deployment instructions
+<br>
 
-* ...
+## 2. 使用技術
+
+### フロントエンド
+
+-   HTML
+-   CSS
+-   Bootstrap 5.0.0
+-   React(React on Rails 12.3.0)
+
+### バックエンド
+
+-   ruby 2.7.3
+-   Ruby on Rails 6.1.4
+-   MySQL 8.0.26
+
+### インフラ
+
+-   Docker 20.10.7 / docker-compose 1.29.2 （開発環境）
+-   AWS ( VPC, EC2, RDS, Route53, ACM )
+-   nginx 1.20.1
+-   unicorn 6.0.0
+-   CircleCI 2.1
+
+### その他
+
+-   Git 2.24.3 / GitHub
+-   VSCode
+
+<br>
+
+## 3. インフラ構成図
+![infra](https://user-images.githubusercontent.com/79225764/140659100-cb0d1d7d-14a1-4949-9fdc-d05ded4760aa.png)
+
+<br>
+
+## 4. ER図
+![er](https://user-images.githubusercontent.com/79225764/140621073-fe85639f-26a9-4c59-99a3-7864b5f43a38.png)
+
+<br>
+
+## 5. サービスの機能一覧
+
+-   **ユーザー登録・編集・退会、ログイン・ログアウト**
+-   **ゲストログイン**
+-   **管理者権限**（ユーザー一覧、強制退会、各ユーザーへのメモ、相談・回答の削除）
+
+-   **相談の登録・削除**
+-   **相談への回答・回答への返信及び削除**
+-   **相談一覧**（Ajaxによるページネーション）
+-   **キーワード検索**
+-   **いいね**（React）
+-   **お気に入り**（React）
+
+<br>
+
+## 作者
+
+-   Takafumi Oda
+-   Qiitaアカウント：https://qiita.com/subun33
+-   Twitterアカウント：https://twitter.com/subun33
