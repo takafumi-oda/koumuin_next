@@ -13,9 +13,10 @@
               <%= form.password_field :password, class: "form-control", placeholder: "パスワード" %>
             </div>
             <div class = "btn-position">
-              <%= form.submit "ログインする", class: "btn btn-primary" %>
+              <%= form.submit "ログインする", class: "btn btn-primary login-btn" %>
             </div>
           <% end %>
+          <%= render "shared/guest_login" %>
           <div class = "btn-position">
             <div><%= link_to "まだユーザー登録がお済みでない方はこちらへ", :new_user %></div>
           </div>
