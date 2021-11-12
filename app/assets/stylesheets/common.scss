@@ -23,28 +23,40 @@ ul {
 
 .header-wrapper{
   background-color: gainsboro;
-  display: inline-flex;
-  justify-content: space-between;
-  padding-left: 100px;
-  padding-right: 20px;
   align-items: center;
   width: 100%;
-  height: 60px;
+  padding: 10px 60px;
 }
 
-.header-title{
+.header-flex-box1{
   font-size: 24px;
-  font-weight: bold;
-  font-style: italic;
+}
+
+.login-header-menu{
+  background-color: gainsboro;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 10;
+}
+
+.not-login-header-menu{
+  background-color: gainsboro;
 }
 
 .search-box{
   background-color: white;
-  border: solid 1px black ;
+  height: 36px;
+}
+
+.search-box-text, .search-btn{
+  height: 100%;
 }
 
 #keyword{
   width: 300px;
+  height: 100%;
   background-color: white;
   border: none;
   padding: 0 10px;
@@ -55,34 +67,8 @@ ul {
   font-weight: 900;
   background-color: white;
   border: none;
-  padding-right: 10px;
-}
-
-.header-link{
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-}
-
-.header-link a{
-  font-weight: bold;
-  height: 36px;
-  line-height: 22px;
-}
-
-.haeder-user{
-  display: inline-flex;
-  justify-content: space-between;
-  margin-left: 30px;
-}
-
-.haeder-user a, .haeder-user div{
-  margin: auto;
-}
-
-.haeder-user a:hover, .haeder-user button:hover{
-  opacity: 0.6;
+  padding: 0 10px;
+  height: 100%;
 }
 
 .user-menu{
@@ -316,4 +302,38 @@ ul {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+
+  .header-wrapper{
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .header-flex-box1{
+    order: 1;
+  }
+
+  .header-flex-box2{
+    order: 4;
+    width: 100%;
+  }
+
+  .header-flex-box3{
+    order: 2;
+  }
+
+  .header-flex-box4{
+    order: 3;
+  }
+
+  .not-login-header-menu{
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+  }
+
 }
