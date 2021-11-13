@@ -1,8 +1,4 @@
-html{
-  height: 100%;
-}
-
-body{
+html, body{
   height: 100%;
 }
 
@@ -19,126 +15,6 @@ header * a, footer * a{
 
 ul {
   list-style: none;
-}
-
-.header-wrapper{
-  background-color: gainsboro;
-  display: inline-flex;
-  justify-content: space-between;
-  padding-left: 100px;
-  padding-right: 20px;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-}
-
-.header-title{
-  font-size: 24px;
-  font-weight: bold;
-  font-style: italic;
-}
-
-.search-box{
-  background-color: white;
-  border: solid 1px black ;
-}
-
-#keyword{
-  width: 300px;
-  background-color: white;
-  border: none;
-  padding: 0 10px;
-}
-
-.search-icon{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  background-color: white;
-  border: none;
-  padding-right: 10px;
-}
-
-.header-link{
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-}
-
-.header-link a{
-  font-weight: bold;
-  height: 36px;
-  line-height: 22px;
-}
-
-.haeder-user{
-  display: inline-flex;
-  justify-content: space-between;
-  margin-left: 30px;
-}
-
-.haeder-user a, .haeder-user div{
-  margin: auto;
-}
-
-.haeder-user a:hover, .haeder-user button:hover{
-  opacity: 0.6;
-}
-
-.user-menu{
-  border: none;
-  background-color: gainsboro;
-  padding: 0;
-  margin-left: 20px;
-  font-weight: bold;
-  width: 120px;
-}
-
-.menu-window{
-  width: 100%;
-  background-color: gainsboro;
-  position: absolute;
-  top: 60px;
-  z-index: 10;
-  animation-name: menu-window-animation;
-  animation-duration: 1s;
-}
-
-@keyframes menu-window-animation{
-  0% {
-    max-height: 0;
-  }
-  100% {
-    max-height: 293px;
-  }
-}
-
-.menu-window a{
-  color: black;
-  height: 48px;
-  line-height: 40px;
-  animation-name: menu-window-text-animation;
-  animation-duration: 1s;
-}
-
-@keyframes menu-window-text-animation{
-  0% {
-    max-height: 0;
-    opacity: 0;
-  }
-  5%{
-    opacity: 0;
-  }
-  100% {
-    max-height: 48px;
-  }
-}
-
-.content-wrapper{
-  min-height: calc(100% - 120px);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #f2f7f7;
 }
 
 .notice, .alert{
@@ -159,35 +35,90 @@ ul {
   background-color: red;
 }
 
-.form-wrapper{
-  display: flex;
-  justify-content: center;
+.header-wrapper{
+  background-color: gainsboro;
   align-items: center;
+  width: 100%;
+  padding: 10px 60px;
+}
+
+.header-flex-box1{
+  font-size: 24px;
+}
+
+.login-header-menu{
+  background-color: gainsboro;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  text-align: center;
+  width: 180px;
+  z-index: 10;
+}
+
+.not-login-header-menu{
+  background-color: gainsboro;
+}
+
+.search-box{
+  background-color: white;
+  height: 36px;
+}
+
+.search-box-text, .search-btn{
+  height: 100%;
+}
+
+#keyword{
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  border: none;
+  padding: 0 10px;
+}
+
+.search-icon{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  background-color: white;
+  border: none;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.user-menu{
+  border: none;
+  background-color: gainsboro;
+  padding: 0;
+  margin-left: 20px;
+  font-weight: bold;
+  width: 120px;
+}
+
+.content-wrapper{
+  min-height: calc(100% - 120px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #f2f7f7;
 }
 
 .footer-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
   background-color: gainsboro;
-  width: 100%;
-  height: 60px;
 }
 
-.footer-wrapper p{
+.footer-menu li{
+  padding: 5px 20px;
+}
+
+.copyright{
   font-size: 12px;
   color: gray;
 }
 
-.footer-menu{
+.form-wrapper{
   display: flex;
   justify-content: center;
-}
-
-.footer-menu li{
-  margin: 0 20px;
-  font-weight: bold;
+  align-items: center;
 }
 
 .overlay{
@@ -311,9 +242,40 @@ ul {
   font-size: 20px;
 }
 
-.admin-container nav, .post-list-wrapper nav{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 480px) {
+  .header-wrapper{
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .header-flex-box1{
+    order: 1;
+  }
+
+  .header-flex-box2{
+    order: 4;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .header-flex-box3{
+    order: 2;
+  }
+
+  .header-flex-box4{
+    order: 3;
+  }
+
+  .login-header-menu{
+    width: 100%;
+  }
+
+  .not-login-header-menu{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+  }
 }
