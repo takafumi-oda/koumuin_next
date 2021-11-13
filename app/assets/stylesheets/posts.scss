@@ -25,14 +25,18 @@
   color: white;
 }
 
-.top-message-box h1{
+.top-message-box-title{
   font-size: 48px;
   font-weight: bold;
   font-style: italic;
   margin-bottom: 30px;
 }
 
-.top-message-box h1, .top-message-box > p{
+.top-message{
+  font-size: 24px;
+}
+
+.top-message-box-title, .top-message-box-sub-title, .top-message{
   animation-name: top-animation;
   animation-duration: 2s;
   animation-delay: 4s;
@@ -147,37 +151,17 @@
   }
 }
 
-.top-message{
-  font-size: 24px;
-}
-
 .top-login-form{
   position: absolute;
   top: 130px;
   right: 50px;
   width: 400px;
-  animation-name: top-animation;
-  animation-duration: 2s;
-  animation-delay: 4s;
-  animation-fill-mode: both;
-}
-
-.top-card-body{
-  padding: 20px;
-}
-
-.top-form-group{
-  margin-bottom: 15px;
 }
 
 .post-list{
-  display: flex;
+  width: 80%;
   margin: 0 auto;
-  width: 1000px;
   border-bottom: solid 1px lightgray;
-  padding: 15px;
-  justify-content: center;
-  align-items: center;
 }
 
 .reply-count{
@@ -194,17 +178,8 @@
   height: auto;
 }
 
-.post-user{
-  margin-bottom: 10px;
-}
-
-.post-user span{
-  margin-right: 20px;
-}
-
 .post-title{
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .post-title a{
@@ -341,4 +316,45 @@
 
 .like-box span{
   margin-left: 5px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .top-message-box{
+    position: absolute;
+    top: 20px;
+    left: 10px;
+  }
+
+  .top-message-box-title{
+    margin-bottom: 10px;
+  }
+
+  .top-message-box-title, .top-message-box-sub-title{
+    animation: none;
+  }
+
+  .top-message{
+    display: none;
+  }
+
+  .balloon-position{
+    display: none;
+  }
+
+  .top-login-form{
+    position: absolute;
+    top: 120px;
+    left: 10px;
+    width: 350px;
+  }
+
+  .post-list{
+    width: 95%;
+  }
+
+  .reply-count{
+    margin-right: 10px;
+  }
+
 }

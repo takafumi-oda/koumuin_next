@@ -109,7 +109,7 @@ RSpec.describe "Users", type: :system do
       describe "設定画面への遷移" do
         it "遷移成功" do
           visit user_path(user.id)
-          click_on "設定"
+          find("#test-btn").click
           expect(page).to have_current_path edit_user_path(user.id), ignore_query: true
         end
       end

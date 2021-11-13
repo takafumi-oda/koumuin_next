@@ -2,8 +2,8 @@
   <% unless current_user %>
     <div class = "top-wrapper">
       <div class = "top-message-box">
-        <p>公務員からの転職を考える人のための交流サイト</P>
-        <h1 class = "title" >公務員NEXT</h1>
+        <p class = "top-message-box-sub-title">公務員からの転職を考える人のための交流サイト</p>
+        <h1 class = "top-message-box-title" >公務員NEXT</h1>
         <div class = "balloon-position">
           <div class="balloon balloon1"><p>家族からの反対が•••</p></div>
           <div class="balloon balloon2"><p>公務員以外じゃ通用しないかも</p></div>
@@ -13,9 +13,9 @@
       </div>
       <div class = "top-login-form">
         <div class = "card">
-          <div class = "card-body top-card-body">
+          <div class = "card-body p-3">
             <%= form_with scope: :session, url: login_path, class: "form-horizontal", local: true do |form| %>
-              <div class = "form-group top-form-group">
+              <div class = "form-group mb-3">
                 <%= form.label :email, "メールアドレス", class: "card-name" %>
                 <%= form.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
               </div>

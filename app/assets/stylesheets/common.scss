@@ -49,9 +49,10 @@ ul {
 .login-header-menu{
   background-color: gainsboro;
   position: absolute;
+  top: 60px;
   right: 0;
   text-align: center;
-  width: 100%;
+  width: 180px;
   z-index: 10;
 }
 
@@ -241,15 +242,7 @@ ul {
   font-size: 20px;
 }
 
-.admin-container nav, .post-list-wrapper nav{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-}
-
 @media screen and (max-width: 480px) {
-
   .header-wrapper{
     flex-wrap: wrap;
     padding: 10px;
@@ -261,6 +254,7 @@ ul {
 
   .header-flex-box2{
     order: 4;
+    margin-top: 10px;
     width: 100%;
   }
 
@@ -272,12 +266,16 @@ ul {
     order: 3;
   }
 
+  .login-header-menu{
+    width: 100%;
+  }
+
   .not-login-header-menu{
     position: absolute;
+    top: 60px;
     right: 0;
     text-align: center;
     width: 100%;
     z-index: 10;
   }
-
 }
