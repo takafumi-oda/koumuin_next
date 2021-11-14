@@ -174,7 +174,8 @@ ul {
 }
 
 .form-box{
-  width: 750px;
+  max-width: 750px;
+  width: 90%;
 }
 
 .form-parts{
@@ -207,12 +208,8 @@ ul {
 
 .btn-position{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 20px;
-}
-
-.btn-position a, .btn-position button{
-  margin: 0 15px;
 }
 
 .guest-btn-position{
@@ -227,15 +224,9 @@ ul {
   border: solid 1px black;
 }
 
-.show-wrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .show-box{
-  margin: 10px 0 20px 0;
-  width: 500px;
+  max-width: 500px;
+  width: 90%;
 }
 
 .post-title{
@@ -278,4 +269,19 @@ ul {
     width: 100%;
     z-index: 10;
   }
+
+  .btn-position{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-position *{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-wrapper{
+    align-items: flex-start;
+  }
+
 }
