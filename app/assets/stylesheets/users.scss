@@ -5,10 +5,21 @@
 .withdrawl-modal-window{
   border: solid 3px red;
 }
+
 .withdrawl-message{
   text-align: center;
 }
 
 .withdrawl-message p:first-child{
   font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .withdrawl-btn{
+    width: 100%;
+  }
+
+  .withdrawl-modal-window{
+    width: 90%;
+  }
 }

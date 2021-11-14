@@ -10,7 +10,7 @@ const UserWithdrawlModal = (props) => {
 
   return (
     <>
-      <button className="btn btn-outline-danger" onClick={ShowModal}>退会する</button>
+      <button className="btn btn-outline-danger withdrawl-btn" onClick={ShowModal}>退会する</button>
       <UserWithdrawlModalBox showFlag={showModal} setShowModal={setShowModal} user={user} />
     </>
   );
