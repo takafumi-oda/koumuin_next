@@ -5,7 +5,7 @@
 <div class = "reply-box-content">
   <%= safe_join(reply.content.split("\n"),tag(:br)) %>
 </div>
-<div class = "reply-box-footer">
+<div class = "d-flex flex-row justify-content-between">
   <%= react_component("Like", props: { replyId: reply.id, likeId: reply.like_by(current_user)&.id, likeCount: reply.likes.size, user: current_user }, prerender: false) %>
   <%= link_to "削除する", post_reply_path(post, reply.id), method: :delete, class: "btn btn-outline-danger btn-sm" if reply_delete_permission?(reply) %>
 </div>
