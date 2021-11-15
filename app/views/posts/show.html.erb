@@ -18,8 +18,8 @@
         <p>※回答がない場合のみ可能</p>
       <% end %>
     </div>
-    <div class = "reply-form-box">
-      <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+    <div>
+      <%= form_with(model: [@post, @reply], method: :post, class: "reply-form-box", local: true) do |form| %>
         <%= form.text_area :content, class: "form-control", placeholder: "回答を入力する" %>
         <%= form.hidden_field :post_id, value: @post.id %>
         <div class = "btn-position">
@@ -43,8 +43,8 @@
                 </div>
               <% end %>
             <% end %>
-            <div class = "reply-form-box">
-              <%= form_with(model: [@post, @reply], method: :post, local: true) do |form| %>
+            <div>
+              <%= form_with(model: [@post, @reply], method: :post, class: "reply-form-box", local: true) do |form| %>
                 <%= form.text_area :content, class: "form-control", placeholder: "返信を入力する" %>
                 <%= form.hidden_field :post_id, value: @post.id %>
                 <%= form.hidden_field :parent_id, value: reply.id %>

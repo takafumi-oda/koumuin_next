@@ -214,7 +214,7 @@
   border: solid 1px black;
   padding:  20px;
   margin: auto;
-  width: 1000px;
+  width: 80%;
 }
 
 .post-box > div, .parent-reply-box > div, .children-reply-box > div{
@@ -224,7 +224,6 @@
 .post-box-title{
   display: flex;
   flex-direction: row;
-
 }
 
 .post-box-title h4{
@@ -255,6 +254,7 @@
   flex-direction: row;
   align-items: center;
 }
+
 .post-box-infomation > *, .reply-box-infomation > *{
   margin-right: 20px;
 }
@@ -282,7 +282,7 @@
 }
 
 .reply-form-box textarea{
-  width: 956px;
+  width: 100%;
   padding: 5px;
   margin-top: 30px;
 }
@@ -292,7 +292,7 @@
 }
 
 .replies-box h4{
-  width: 1000px;
+  width: 80%;
   margin: auto;
   padding: 30px 0 15px;
 }
@@ -306,12 +306,6 @@
   padding-bottom: 15px;
   margin-top: 30px;
   padding-left: 5%;
-}
-
-.reply-box-footer{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .like-box span{
@@ -355,6 +349,19 @@
 
   .reply-count{
     margin-right: 10px;
+  }
+
+  .post-box, .reply-box, .replies-box h4{
+    width: 90%;
+  }
+
+  .post-box-title{
+    flex-direction: column；
+  }
+
+  .post-box-infomation, .reply-box-infomation{
+    flex-direction: column;
+    align-items: flex-start;
   }
 
 }
