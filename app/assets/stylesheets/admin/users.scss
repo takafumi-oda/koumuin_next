@@ -31,3 +31,17 @@
   width: 100%;
   height: 240px;
 }
+
+@media screen and (max-width: 480px) {
+  .admin-edit-wrapper{
+    flex-direction: column;
+  }
+
+  .admin-edit-wrapper div:first-child{
+    margin-right: 0;
+  }
+
+  .admin-box{
+    width: 95%;
+  }
+}
