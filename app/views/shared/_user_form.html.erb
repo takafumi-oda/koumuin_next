@@ -1,64 +1,64 @@
 <div class = "row form-group form-parts">
   <%= form.label :name, "ユーザー名", class: "col-sm-3 col-form-label annotation" %>
-  <div class = "col-sm-9">
+  <div class = "col-sm-9 d-flex align-items-center">
     <%= form.text_field :name, class: "form-control", placeholder: "ユーザー名（20文字以下）" %>
   </div>
 </div>
 <div class = "row form-group form-parts">
   <%= form.label :email, "メールアドレス", class: "col-sm-3 col-form-label annotation" %>
-  <div class = "col-sm-9">
+  <div class = "col-sm-9 d-flex align-items-center">
     <%= form.email_field :email, class: "form-control", placeholder:"メールアドレス" %>
   </div>
 </div>
 <% unless current_user%>
   <div class = "row form-group form-parts">
     <%= form.label :password, "パスワード", class: "col-sm-3 col-form-label annotation" %>
-    <div class = "col-sm-9">
+    <div class = "col-sm-9 d-flex align-items-center">
       <%= form.password_field :password, class: "form-control", placeholder: "パスワード（６文字以上）" %>
     </div>
   </div>
   <div class = "row form-group form-parts">
     <%= form.label :password_confirmation, "パスワード(確認)", class: "col-sm-3 col-form-label annotation" %>
-    <div class = "col-sm-9">
+    <div class = "col-sm-9 d-flex align-items-center">
       <%= form.password_field :password_confirmation, class: "form-control", placeholder: "上記と同じパスワードを入力" %>
     </div>
   </div>
 <% end %>
 <div class = "row form-group form-parts">
   <%= form.label :age, "年代", class: "col-sm-3 col-form-label annotation" %>
-  <div class = "col-sm-9">
-    <%= form.radio_button :age, "10代", class: "form-check-input" %>10代
-    <%= form.radio_button :age, "20代", class: "form-check-input radio-button" %>20代
-    <%= form.radio_button :age, "30代", class: "form-check-input radio-button" %>30代
-    <%= form.radio_button :age, "40代", class: "form-check-input radio-button" %>40代
-    <%= form.radio_button :age, "50代", class: "form-check-input radio-button" %>50代
-    <%= form.radio_button :age, "60代以上", class: "form-check-input radio-button" %>60代以上
+  <div class = "col-sm-9 d-flex align-items-center flex-wrap">
+    <div class = "pe-3"><%= form.radio_button :age, "10代", class: "form-check-input" %>10代</div>
+    <div class = "pe-3"><%= form.radio_button :age, "20代", class: "form-check-input" %>20代</div>
+    <div class = "pe-3"><%= form.radio_button :age, "30代", class: "form-check-input" %>30代</div>
+    <div class = "pe-3"><%= form.radio_button :age, "40代", class: "form-check-input" %>40代</div>
+    <div class = "pe-3"><%= form.radio_button :age, "50代", class: "form-check-input" %>50代</div>
+    <div class = "pe-3"><%= form.radio_button :age, "60代以上", class: "form-check-input" %>60代以上</div>
   </div>
 </div>
 <div class = "row form-group form-parts">
   <%= form.label :organization, "組織", class: "col-sm-3 col-form-label annotation" %>
-  <div class = "col-sm-9">
-    <%= form.radio_button :organization, "国家公務員", class: "form-check-input" %>国家公務員
-    <%= form.radio_button :organization, "地方公務員", class: "form-check-input radio-button" %>地方公務員
+  <div class = "col-sm-9 d-flex align-items-center">
+    <div class = "pe-3"><%= form.radio_button :organization, "国家公務員", class: "form-check-input" %>国家公務員</div>
+    <div class = "pe-3"><%= form.radio_button :organization, "地方公務員", class: "form-check-input" %>地方公務員</div>
   </div>
 </div>
 <div class = "row form-group form-parts">
   <%= form.label :job, "職種", class: "col-sm-3 col-form-label annotation" %>
-    <div class = "col-sm-9">
-      <%= form.radio_button :job, "事務系", class: "form-check-input" %>事務系
-      <%= form.radio_button :job, "技術系", class: "form-check-input radio-button" %>技術系
+    <div class = "col-sm-9 d-flex align-items-center">
+      <div class = "pe-3"><%= form.radio_button :job, "事務系", class: "form-check-input" %>事務系</div>
+      <div class = "pe-3"><%= form.radio_button :job, "技術系", class: "form-check-input" %>技術系</div>
   </div>
 </div>
 <div class = "row form-group form-parts">
   <%= form.label :status, "現在の状況", class: "col-sm-3 col-form-label annotation" %>
-    <div class = "col-sm-9">
-      <%= form.radio_button :status, "現職", class: "form-check-input" %>現職
-      <%= form.radio_button :status, "退職済", class: "form-check-input radio-button" %>退職済
+    <div class = "col-sm-9 d-flex align-items-center">
+      <div class = "pe-3"><%= form.radio_button :status, "現職", class: "form-check-input" %>現職</div>
+      <div class = "pe-3"><%= form.radio_button :status, "退職済", class: "form-check-input" %>退職済</div>
   </div>
 </div>
 <div class = "row form-group form-parts">
   <%= form.label :introduction, "自己紹介", class: "col-sm-3 col-form-label" %>
-  <div class = "col-sm-9">
+  <div class = "col-sm-9 d-flex align-items-center">
     <%= form.text_area :introduction, class: "form-control", placeholder: "自己紹介（１００文字以内）" %>
   </div>
 </div>

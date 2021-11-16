@@ -21,3 +21,9 @@
 .child-ol{
   padding-left: 1em;
 }
+
+@media screen and (max-width: 480px) {
+  .text-wrapper{
+    padding: 30px;
+  }
+}

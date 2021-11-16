@@ -351,14 +351,30 @@
     margin-right: 10px;
   }
 
-  .post-box, .reply-box, .replies-box h4{
+  .post-box, .reply-box{
+    width: 90%;
+    padding-top: 0;
+    padding-bottom: 10px;
+
+  }
+
+  .replies-box h4{
     width: 90%;
   }
 
   .post-box-title{
-    flex-direction: column；
+    flex-direction: column-reverse;
   }
 
+  .post-box-title h4{
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .favorite-button{
+    display: flex;
+    justify-content: flex-end;
+  }
   .post-box-infomation, .reply-box-infomation{
     flex-direction: column;
     align-items: flex-start;
