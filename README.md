@@ -1,4 +1,4 @@
-# 「公務員NEXT」
+# 公務員NEXT
 
 
 ## 1. サービス概要
@@ -39,7 +39,7 @@
 
 ### バックエンド
 
--   ruby 2.7.3
+-   Ruby 2.7.3
 -   Ruby on Rails 6.1.4
 -   MySQL 8.0.26
 
@@ -47,8 +47,8 @@
 
 -   Docker 20.10.7 / docker-compose 1.29.2 （開発環境）
 -   AWS ( VPC, EC2, RDS, Route53, ACM )
--   nginx 1.20.1
--   unicorn 6.0.0
+-   Nginx 1.20.1
+-   Unicorn 6.0.0
 -   CircleCI 2.1
 
 ### その他
