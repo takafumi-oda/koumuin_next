@@ -17,6 +17,13 @@
           <div class = "card-body">
             <%= form_with model: @user, local: true do |form| %>
               <div class = "card-box">
+                <p class = "card-name"><%= form.label :active, "アクティブユーザー" %></p>
+                <div>
+                  <%= form.radio_button :active, true, class: "form-check-input" %>復活
+                  <%= form.radio_button :active, false, class: "form-check-input radio-button" %>強制退会
+                </div>
+              </div>
+              <div class = "card-box">
                 <p class = "card-name"><%= form.label :admin, "管理者権限" %></p>
                 <div>
                   <%= form.radio_button :admin, true, class: "form-check-input" %>付与
