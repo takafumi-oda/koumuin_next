@@ -71,6 +71,7 @@ class UsersController < ApplicationController
       :job,
       :status,
       :introduction,
+      :active,
       :admin,
       :note
     )
