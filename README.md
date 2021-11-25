@@ -6,7 +6,13 @@
 
 ![top-page](https://user-images.githubusercontent.com/79225764/141842717-b5854be9-895c-4c6c-8ec4-04a1e623479b.jpeg)
 
-  URL ▶︎ https://www.koumuin-next.com
+  **URL** ▶︎ https://www.koumuin-next.com
+
+  **紹介記事** ▶︎ https://qiita.com/subun33/items/886331cd679ef65051e8
+  <p style="text-indent:1em;">アプリの概要に加えて、開発にあたっての気づきなども掲載しています。<p>
+
+<br>
+
 -   PCからでも、スマホからでもご利用いただけます。
 -   「トップページ」の**ゲストユーザーでログインする**ボタンを押していただいたら、ユーザー登録をせずに利用できます。
 -   **管理者機能をご利用になる場合**は、以下のメールアドレス、パスワードでご利用いただけます。
