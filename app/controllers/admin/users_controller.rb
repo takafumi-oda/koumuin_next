@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
     else
-      flash[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
+      flash.now[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
       render :edit
     end
   end
