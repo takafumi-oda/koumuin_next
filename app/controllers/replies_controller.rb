@@ -13,9 +13,9 @@ class RepliesController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       unless @reply.parent_id
-        flash[:alert] = "この相談への回答が登録できませんでした"
+        flash.now[:alert] = "この相談への回答が登録できませんでした"
       else
-        flash[:alert] = "この回答への返信が登録できませんでした"
+        flash.now[:alert] = "この回答への返信が登録できませんでした"
       end
       @post = Post.find(@reply.post_id)
       @replies = @post.replies.includes([:user, :likes])

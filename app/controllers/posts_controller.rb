@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post.id), notice: "新しい相談をしました"
     else
-      flash[:alert] = "新しい相談の登録に失敗しました"
+      flash.now[:alert] = "新しい相談の登録に失敗しました"
       render :new
     end
   end

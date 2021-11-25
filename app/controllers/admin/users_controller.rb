@@ -16,11 +16,16 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を更新しました"
+    if (@user.admin == true) || (@user.email == "guest@email.co.jp")
+      flash[:alert] = "「#{@user.name}」のユーザー情報は変更することができません。"
+      redirect_back(fallback_location: root_path)
     else
-      flash[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
-      render :edit
+      if @user.update(user_params)
+        redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を更新しました"
+      else
+        flash.now[:alert] = "「#{@user.name}」のユーザー情報の更新に失敗しました"
+        render :edit
+      end
     end
   end
 
