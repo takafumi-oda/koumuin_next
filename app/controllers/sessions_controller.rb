@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: "ログインしました"
     else
-      flash.now[:alert] = "メールアドレスかパスワードが間違っています"
+      flash[:alert] = "メールアドレスかパスワードが間違っています"
       redirect_back(fallback_location: root_path)
     end
   end
