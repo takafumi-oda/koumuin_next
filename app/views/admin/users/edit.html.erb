@@ -15,7 +15,7 @@
       <div class = "admin-box">
         <div class = "card admin-edit-card">
           <div class = "card-body">
-            <%= form_with model: @user, local: true do |form| %>
+            <%= form_with model: @user, url: {controller: "admin/users", action: "update" }, local: true do |form| %>
               <div class = "card-box">
                 <p class = "card-name"><%= form.label :active, "アクティブユーザー" %></p>
                 <div>

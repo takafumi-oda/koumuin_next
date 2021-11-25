@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: "ユーザー「#{@user.name}」を登録しました"
     else
-      flash[:alert] = "新しいアカウントの登録に失敗しました"
+      flash.now[:alert] = "新しいアカウントの登録に失敗しました"
       render :new
     end
   end
@@ -22,15 +22,20 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      if current_user.admin
-        redirect_to admin_users_path, notice: "「#{@user.name}」のユーザー情報を変更しました"
-      else
-        redirect_to user_path(@user.id), notice: "「#{@user.name}」のユーザー情報を変更しました"
-      end
+    if (@user.admin == true) || (@user.email == "guest@email.co.jp")
+      flash[:alert] = "「#{@user.name}」のユーザー情報は変更することができません。"
+      redirect_back(fallback_location: root_path)
     else
-      flash[:alert] = "「#{@user.name}」のユーザー情報の変更に失敗しました"
-      render :edit
+      if @user.update(user_params)
+        if current_user.admin
+          redirect_to admin_users_path, notice: "ユーザー情報を変更しました"
+        else
+          redirect_to user_path(@user.id), notice: "ユーザー情報を変更しました"
+        end
+      else
+        flash.now[:alert] = "ユーザー情報の変更に失敗しました"
+        render :edit
+      end
     end
   end
 
@@ -40,11 +45,16 @@ class UsersController < ApplicationController
 
   def withdrawl
     @user = User.find(params[:id])
-    @user.update(active: false)
-    if current_user.admin
+    if (@user.admin == true) || (@user.email == "guest@email.co.jp")
+      flash[:alert] = "「#{@user.name}」は退会することができません。"
       redirect_to admin_users_path
     else
-      reset_session
+      @user.update(active: false)
+      if current_user.admin
+        redirect_to admin_users_path
+      else
+        reset_session
+      end
     end
   end
 

@@ -7,12 +7,17 @@ class PasswordController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    if @user.update(password_params) && @user.valid?(:password_update)
-      flash[:notice] = "パスワードを変更しました"
-      redirect_to user_path(current_user.id)
-    else
-      flash[:alert] = "パスワードの変更に失敗しました"
+    if (@user.admin == true) || (@user.email == "guest@email.co.jp")
+      flash.now[:alert] = "「#{@user.name}」のパスワードは変更することができません。"
       render :edit
+    else
+      if @user.update(password_params) && @user.valid?(:password_update)
+        flash[:notice] = "パスワードを変更しました"
+        redirect_to user_path(current_user.id)
+      else
+        flash.now[:alert] = "パスワードの変更に失敗しました"
+        render :edit
+      end
     end
   end
 
