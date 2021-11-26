@@ -24,13 +24,6 @@
                 </div>
               </div>
               <div class = "card-box">
-                <p class = "card-name"><%= form.label :admin, "管理者権限" %></p>
-                <div>
-                  <%= form.radio_button :admin, true, class: "form-check-input" %>付与
-                  <%= form.radio_button :admin, false, class: "form-check-input radio-button" %>削除
-                </div>
-              </div>
-              <div class = "card-box">
                 <p class = "card-name"><%= form.label :note, "備考（管理者用）" %></p>
                 <%= form.text_area :note, class: "admin-edit-text" %>
               </div>
