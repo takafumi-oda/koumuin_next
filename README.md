@@ -9,7 +9,7 @@
   **URL** ▶︎ https://www.koumuin-next.com
 
   **紹介記事** ▶︎ https://qiita.com/subun33/items/886331cd679ef65051e8
-  <p style="text-indent:1em;">アプリの概要に加えて、開発にあたっての気づきなども掲載しています。<p>
+  <p style="text-indent:1em;">アプリの概要に加えて、開発にあたっての気づきなどもまとめています。<p>
 
 <br>
 
@@ -70,7 +70,7 @@
 <br>
 
 ## 4. ER図
-![er](https://user-images.githubusercontent.com/79225764/140621073-fe85639f-26a9-4c59-99a3-7864b5f43a38.png)
+![er](https://user-images.githubusercontent.com/79225764/143621234-f2d4a27b-c877-491c-8bea-992eaf29612d.png)
 
 <br>
 
@@ -79,7 +79,6 @@
 -   **ユーザー登録・編集・退会、ログイン・ログアウト**
 -   **ゲストログイン**
 -   **管理者権限**（ユーザー一覧、強制退会、各ユーザーへのメモ、相談・回答の削除）
-
 -   **相談の登録・削除**
 -   **相談への回答・回答への返信及び削除**
 -   **相談一覧**（Ajaxによるページネーション）
