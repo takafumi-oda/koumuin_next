@@ -47,7 +47,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if (@user.admin == true) || (@user.email == "guest@email.co.jp")
       flash[:alert] = "「#{@user.name}」は退会することができません。"
-      redirect_to admin_users_path
     else
       @user.update(active: false)
       if current_user.admin
