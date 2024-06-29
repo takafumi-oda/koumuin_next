@@ -6,7 +6,7 @@
 
 ![top-page](https://user-images.githubusercontent.com/79225764/141842717-b5854be9-895c-4c6c-8ec4-04a1e623479b.jpeg)
 
-  **URL** ▶︎ https://www.koumuin-next.com
+  ~~**URL** ▶︎ https://www.koumuin-next.com~~
 
   **紹介記事** ▶︎ https://qiita.com/subun33/items/886331cd679ef65051e8
   <p style="text-indent:1em;">アプリの概要に加えて、開発にあたっての気づきなどもまとめています。<p>
@@ -105,11 +105,3 @@
       - RspecによるテストやRubocopによるコードチェックを導入していましたが、**デプロイ前の確認忘れを防ぐため、また毎回のデプロイの手間を省力化するため**、CircleCIによる、CI/CDを導入しました。
 <br><br>
       - Rspecによる統合テストでは、**不適当な入力を防止するため**に、正常に動作することのテストだけでなく、不適応な入力があった場合には、エラーとなることもテストを書くようにしていました。
-
-<br>
-
-## 作者
-
--   Takafumi Oda
--   Qiitaアカウント：https://qiita.com/subun33
--   Twitterアカウント：https://twitter.com/subun33
